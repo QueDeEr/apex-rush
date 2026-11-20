@@ -1881,6 +1881,137 @@ kbd {
   #bossResults .result-stats { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ───────────── Settings / camera ───────────── */
+.settings-btn { font-family: var(--mono); font-size: 15px; }
+.settings-dialog { width: min(680px, 94vw); }
+.settings-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.settings-head h2 { margin: 6px 0 0; }
+.settings-close {
+  width: 32px; height: 32px; flex: 0 0 auto;
+  border: 1px solid var(--line); background: transparent; color: var(--muted);
+  font-size: 20px; line-height: 1; cursor: pointer; transition: .2s;
+}
+.settings-close:hover { color: var(--acid); border-color: rgba(216,255,67,.45); }
+.settings-sub { margin: 12px 0 24px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.settings-group { border-top: 1px solid var(--line); padding-top: 18px; }
+.settings-group-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+.settings-group-head span { font-size: 12px; letter-spacing: .12em; }
+.settings-group-head small { font-family: var(--mono); font-size: 8px; letter-spacing: .14em; color: var(--dim); }
+.camera-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.camera-option {
+  min-height: 132px; padding: 16px; text-align: left; cursor: pointer;
+  border: 1px solid var(--line); background: rgba(255,255,255,.018);
+  color: var(--text); transition: .2s;
+}
+.camera-option:hover { border-color: rgba(216,255,67,.36); background: rgba(216,255,67,.035); }
+.camera-option.active { border-color: var(--acid); box-shadow: inset 0 0 0 1px rgba(216,255,67,.18); background: rgba(216,255,67,.055); }
+.camera-option-icon { display: block; margin-bottom: 7px; color: var(--acid); font-family: var(--mono); font-size: 21px; line-height: 1; }
+.camera-option b { display: block; font-size: 15px; letter-spacing: .04em; }
+.camera-option small { display: block; margin-top: 7px; color: var(--muted); font-size: 10px; line-height: 1.65; }
+.settings-note { margin: 14px 0 4px; color: var(--dim); font: 9px/1.5 var(--mono); }
+@media (max-width: 620px) {
+  .camera-options { grid-template-columns: 1fr; }
+  .camera-option { min-height: 0; }
+  .settings-dialog { padding: 24px 20px; }
+}
+
+/* BOSS car badge tuning */
+.boss-car-perf {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border: 1px solid rgba(242,199,107,.22);
+  background: rgba(242,199,107,.045);
+  color: #d9c89c;
+  font: 9px/1.55 var(--mono);
+  letter-spacing: .04em;
+}
+.boss-car-perf.tier-3 { border-color: rgba(247,241,222,.34); color: #f7f1de; background: rgba(247,241,222,.045); }
+.boss-car-perf b { color: var(--acid); font-weight: 600; }
+
+.car-special-note {
+  margin: 10px 0 4px;
+  padding: 8px 10px;
+  border-left: 2px solid rgba(99,226,196,.65);
+  background: rgba(99,226,196,.045);
+  color: #b9d6cf;
+  font: 9px/1.65 var(--mono);
+  letter-spacing: .03em;
+}
+
+/* ───────────── Settings music ───────────── */
+.music-control { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.music-toggle { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 11px; color: var(--text); }
+.music-toggle input { width: 14px; height: 14px; accent-color: var(--acid); cursor: pointer; }
+.music-control b { font-family: var(--mono); font-size: 10px; color: var(--acid); font-weight: 500; }
+.music-volume { width: 100%; margin-top: 10px; accent-color: var(--acid); cursor: pointer; height: 4px; }
+.music-hint { display: block; margin-top: 8px; color: var(--dim); font: 9px/1.55 var(--mono); }
+
+.settings-volume-label { color: var(--text); font-size: 11px; }
+
+/* ───────────── Driver chip / modal ───────────── */
+.driver-chip {
+  display: flex; align-items: center; gap: 9px; min-width: 150px;
+  padding: 6px 10px; border: 1px solid var(--line); background: rgba(9,12,18,.66);
+  color: var(--text); cursor: pointer; text-align: left; transition: .2s;
+}
+.driver-chip:hover { border-color: rgba(216,255,67,.4); }
+.driver-chip-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: rgba(216,255,67,.12); color: var(--acid); font: 700 15px var(--mono); }
+.driver-chip-copy { display: flex; flex-direction: column; gap: 2px; }
+.driver-chip-copy small { font: 8px var(--mono); letter-spacing: .12em; color: var(--dim); }
+.driver-chip-copy b { font-size: 11px; font-weight: 600; }
+.driver-chip-arrow { margin-left: auto; color: var(--dim); font-size: 16px; }
+.driver-dialog { width: min(820px, 94vw); }
+.driver-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; max-height: 52vh; overflow-y: auto; padding-right: 4px; }
+.driver-card {
+  display: flex; gap: 10px; align-items: flex-start; padding: 12px; text-align: left;
+  border: 1px solid var(--line); background: rgba(255,255,255,.018); color: var(--text);
+  cursor: pointer; transition: .2s;
+}
+.driver-card:hover { border-color: rgba(216,255,67,.35); }
+.driver-card.active { border-color: var(--acid); background: rgba(216,255,67,.05); }
+.driver-card.locked { opacity: .5; }
+.driver-avatar { width: 42px; height: 42px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; font: 700 18px var(--mono); color: #10150c; background: var(--acid); }
+.driver-card-copy { min-width: 0; }
+.driver-card-copy small { display: block; font: 8px var(--mono); color: var(--dim); letter-spacing: .1em; }
+.driver-card-copy b { display: block; margin-top: 2px; font-size: 13px; }
+.driver-card-copy p { margin: 4px 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
+.driver-card-mods { color: var(--acid); font: 9px/1.45 var(--mono); }
+.driver-equipped { margin-left: auto; color: var(--acid); font: 8px var(--mono); white-space: nowrap; }
+@media (max-width: 620px) { .driver-grid { grid-template-columns: 1fr; } .driver-chip { min-width: 0; } .driver-chip-copy small { display: none; } .driver-chip-copy b { font-size: 10px; } }
+
+/* ───────────── Gacha ───────────── */
+.gacha-dialog { width: min(860px, 94vw); }
+.gacha-wallet { display: flex; justify-content: space-between; align-items: center; margin: 10px 0 16px; font: 10px var(--mono); color: var(--muted); }
+.gacha-wallet b { color: var(--acid); font-size: 14px; }
+.gacha-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.gacha-tab { padding: 10px 12px; text-align: left; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
+.gacha-tab b { display: block; color: var(--text); font-size: 12px; }
+.gacha-tab small { display: block; margin-top: 3px; font: 8px var(--mono); color: var(--dim); }
+.gacha-tab.active { border-color: var(--acid); background: rgba(216,255,67,.06); }
+.gacha-tab.active b { color: var(--acid); }
+.gacha-banner { display: flex; justify-content: space-between; gap: 18px; padding: 14px; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(255,158,194,.08), rgba(216,255,67,.03)); }
+.gacha-kicker { font: 8px var(--mono); letter-spacing: .16em; color: var(--dim); }
+.gacha-banner h3 { margin: 5px 0; font-size: 22px; }
+.gacha-banner p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.gacha-rates { min-width: 160px; font: 9px/1.8 var(--mono); color: var(--muted); text-align: right; }
+.gacha-rates b { color: var(--text); }
+.gacha-pity { margin-top: 10px; color: var(--dim); font: 9px/1.6 var(--mono); }
+.gacha-pity b { color: var(--acid); }
+.gacha-results { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; min-height: 88px; margin: 12px 0; }
+.gacha-item { min-height: 76px; padding: 8px; border: 1px solid var(--line); background: rgba(255,255,255,.018); position: relative; overflow: hidden; animation: gachaIn .35s both; }
+.gacha-item:nth-child(2) { animation-delay: .04s; } .gacha-item:nth-child(3) { animation-delay: .08s; } .gacha-item:nth-child(4) { animation-delay: .12s; } .gacha-item:nth-child(5) { animation-delay: .16s; } .gacha-item:nth-child(6) { animation-delay: .2s; } .gacha-item:nth-child(7) { animation-delay: .24s; } .gacha-item:nth-child(8) { animation-delay: .28s; } .gacha-item:nth-child(9) { animation-delay: .32s; } .gacha-item:nth-child(10) { animation-delay: .36s; }
+@keyframes gachaIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.gacha-item .gacha-icon { font-size: 22px; display: block; color: var(--acid); }
+.gacha-item b { display: block; margin-top: 5px; font-size: 10px; }
+.gacha-item small { display: block; margin-top: 3px; color: var(--dim); font: 8px/1.3 var(--mono); }
+.gacha-item.rare { border-color: rgba(85,230,255,.5); } .gacha-item.epic { border-color: rgba(169,139,255,.65); } .gacha-item.legendary { border-color: rgba(242,199,107,.85); box-shadow: inset 0 0 24px rgba(242,199,107,.1); }
+.gacha-item.rare .gacha-icon { color: var(--cyan); } .gacha-item.epic .gacha-icon { color: var(--violet); } .gacha-item.legendary .gacha-icon { color: #f2c76b; }
+.gacha-actions { display: flex; gap: 9px; }
+.gacha-actions .btn { flex: 1; }
+.gacha-note { margin-top: 10px; color: var(--dim); font: 8px/1.55 var(--mono); }
+@media (max-width: 620px) { .gacha-results { grid-template-columns: repeat(2, 1fr); } .gacha-banner { flex-direction: column; } .gacha-rates { text-align: left; } .gacha-actions { flex-direction: column; } }
+.gacha-empty { grid-column: 1 / -1; display: grid; place-items: center; min-height: 76px; color: var(--dim); border: 1px dashed rgba(255,255,255,.1); font: 9px var(--mono); }
+
 </style>
 </head>
 <body>
@@ -1896,6 +2027,7 @@ kbd {
   <div class="appbar-right">
     <button id="badgeBtn" class="icon-btn badge-btn" title="徽章陈列室" aria-label="徽章陈列室">◇</button>
     <div class="credit-pill" title="齿轮币"><span class="coin">◆</span><b id="credits">0</b></div>
+    <button id="settingsBtn" class="icon-btn settings-btn" title="设置" aria-label="设置">⚙</button>
     <button id="soundBtn" class="icon-btn" title="音效开关" aria-label="音效开关">♪</button>
   </div>
 </header>
@@ -1920,6 +2052,7 @@ kbd {
         <button id="btnBossMode" class="btn btn-ghost">BOSS 模式</button>
         <button id="btnGarage" class="btn btn-ghost">车库 / 改装</button>
         <button id="btnCodex" class="btn btn-ghost">战术图鉴</button>
+        <button id="btnGacha" class="btn btn-ghost">星愿工坊</button>
         <button id="btnHelp" class="btn btn-icon" title="操作说明" aria-label="操作说明">?</button>
       </div>
       <div class="home-meta">
@@ -1968,13 +2101,19 @@ kbd {
         <span class="eyebrow-mini">GARAGE / TUNING</span>
         <h2>车库与改装</h2>
       </div>
-      <div class="head-note">配件为该车型独立升级 · 技能最多装备 2 个</div>
+      <div class="head-note">配件独立升级 · 参数按全车型最高值归一化，最高 10</div>
+      <button id="driverChip" class="driver-chip" title="更换车手">
+        <span id="driverChipIcon" class="driver-chip-icon">A</span>
+        <span class="driver-chip-copy"><small>当前车手</small><b id="driverChipName">阿岚</b></span>
+        <span class="driver-chip-arrow">›</span>
+      </button>
       <button id="garageTopStart" class="btn btn-primary mobile-only">选择关卡 <b>→</b></button>
     </div>
 
     <div class="garage-grid">
       <aside class="car-picker panel">
         <div class="panel-label">选择车型 <span id="carCount">03 / 08</span></div>
+        <div id="bossCarPerf" class="boss-car-perf hidden"></div>
         <div id="carCards" class="car-cards"></div>
         <div class="car-compare">
           <div class="panel-label">车型参数 <span>STOCK</span></div>
@@ -2007,6 +2146,7 @@ kbd {
           <div class="stat-row"><span>抓地</span><div class="bar"><i data-stat="grip"></i></div><b data-statval="grip">7</b></div>
           <div class="stat-row"><span>耐久</span><div class="bar"><i data-stat="durability"></i></div><b data-statval="durability">7</b></div>
         </div>
+        <div id="carSpecialNote" class="car-special-note hidden"></div>
 
         <div class="panel-label upgrades-label">性能配件 <span>PARTS</span></div>
         <div id="upgradeList" class="upgrade-list"></div>
@@ -2179,9 +2319,120 @@ kbd {
     </div>
     <div class="dialog-actions">
       <button id="pauseResume" class="btn btn-primary">继续比赛</button>
+      <button id="pauseSettings" class="btn btn-ghost">设置 / 视角</button>
       <button id="pauseRestart" class="btn btn-ghost">重新开始</button>
       <button id="pauseQuit" class="btn btn-ghost danger">退出到关卡</button>
     </div>
+  </div>
+</div>
+
+<!-- ══════════════ SETTINGS ══════════════ -->
+<div id="settingsOverlay" class="overlay hidden">
+  <div class="dialog settings-dialog">
+    <div class="settings-head">
+      <div>
+        <span class="eyebrow-mini">SYSTEM / CAMERA</span>
+        <h2>设置</h2>
+      </div>
+      <button id="settingsClose" class="settings-close" title="关闭" aria-label="关闭设置">×</button>
+    </div>
+    <p class="settings-sub">视角、背景音乐和碰撞音效都会立即生效。比赛中可以按 ESC 暂停，再从「设置 / 视角」打开这里。</p>
+
+    <div class="settings-group">
+      <div class="settings-group-head"><span>视角</span><small>CAMERA VIEW</small></div>
+      <div class="camera-options">
+        <button class="camera-option" data-camera-mode="world">
+          <span class="camera-option-icon">◇</span>
+          <b>世界视角</b>
+          <small>北向上，车身在屏幕里转向。适合认地图和看全局。</small>
+        </button>
+        <button class="camera-option" data-camera-mode="heading">
+          <span class="camera-option-icon">▴</span>
+          <b>车头视角</b>
+          <small>车头基本朝上，世界绕车旋转。适合高速和看前方。</small>
+        </button>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group-head"><span>背景音乐</span><small>MUSIC</small></div>
+      <div class="music-control">
+        <label class="music-toggle"><input id="musicToggle" type="checkbox" checked><span>开启纯音乐 BGM</span></label>
+        <b id="musicVolumeVal">35%</b>
+      </div>
+      <input id="musicVolume" class="music-volume" type="range" min="0" max="100" step="5" value="35" aria-label="背景音乐音量">
+      <small class="music-hint">每个大章节有独立主题；菜单、BOSS 模式也各有一套。没有歌词。</small>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group-head"><span>音效 / 碰撞</span><small>SFX</small></div>
+      <div class="music-control">
+        <span class="settings-volume-label">音效音量</span>
+        <b id="sfxVolumeVal">80%</b>
+      </div>
+      <input id="sfxVolume" class="music-volume" type="range" min="0" max="100" step="5" value="80" aria-label="碰撞和技能音效音量">
+      <small class="music-hint">撞击、引擎、技能、漂移等音效；和 BGM 独立调节。</small>
+    </div>
+
+    <p class="settings-note">小地图始终北向上，只旋转玩家箭头。</p>
+    <div class="dialog-actions">
+      <button id="settingsDone" class="btn btn-primary">完成</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ DRIVERS ══════════════ -->
+<div id="driverOverlay" class="overlay hidden">
+  <div class="dialog driver-dialog">
+    <div class="settings-head">
+      <div>
+        <span class="eyebrow-mini">DRIVER / CREW</span>
+        <h2>车手</h2>
+      </div>
+      <button id="driverClose" class="settings-close" title="关闭" aria-label="关闭车手">×</button>
+    </div>
+    <p class="settings-sub">全局只装备一名车手。车手提供很小的车辆数据修正，不会改变车辆本身。</p>
+    <div id="driverList" class="driver-grid"></div>
+    <div class="dialog-actions">
+      <button id="driverDone" class="btn btn-primary">完成</button>
+      <button id="driverToGacha" class="btn btn-ghost">去星愿工坊</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ GACHA ══════════════ -->
+<div id="gachaOverlay" class="overlay hidden">
+  <div class="dialog gacha-dialog">
+    <div class="settings-head">
+      <div>
+        <span class="eyebrow-mini">STAR WISH / WORKSHOP</span>
+        <h2>星愿工坊</h2>
+      </div>
+      <button id="gachaClose" class="settings-close" title="关闭" aria-label="关闭星愿工坊">×</button>
+    </div>
+    <div class="gacha-wallet">
+      <span>◆ <b id="gachaCredits">0</b></span>
+      <span>每次 100 ◆ · 十连 1000 ◆</span>
+    </div>
+    <div class="gacha-tabs">
+      <button class="gacha-tab active" data-gacha-pool="paint"><b>涂装池</b><small>通用图案 · 全车可用</small></button>
+      <button class="gacha-tab" data-gacha-pool="driver"><b>车手池</b><small>全局车手 · 轻微属性</small></button>
+    </div>
+    <div class="gacha-banner">
+      <div>
+        <span class="gacha-kicker">CURRENT BANNER</span>
+        <h3 id="gachaBannerTitle">通用涂装</h3>
+        <p id="gachaBannerDesc">所有车辆都能使用的图案涂装。</p>
+      </div>
+      <div class="gacha-rates" id="gachaRates"></div>
+    </div>
+    <div class="gacha-pity" id="gachaPity"></div>
+    <div id="gachaResults" class="gacha-results"></div>
+    <div class="gacha-actions">
+      <button id="gachaPull1" class="btn btn-ghost">单抽 · 100 ◆</button>
+      <button id="gachaPull10" class="btn btn-primary">十连 · 1000 ◆</button>
+    </div>
+    <p class="gacha-note">重复物品自动返还代币；十连至少 1 个稀有；60 抽保底史诗，120 抽保底传说。计数按池子独立保存。</p>
   </div>
 </div>
 
@@ -2294,6 +2545,7 @@ kbd {
     while (a < -Math.PI) a += TAU;
     return a;
   };
+  const lerpAngle = (a, b, t) => a + wrapAngle(b - a) * t;
   const fmtTime = s => {
     if (!isFinite(s) || s < 0) s = 0;
     const m = Math.floor(s / 60);
@@ -2345,11 +2597,11 @@ kbd {
     },
     ev: {
       key: 'ev', name: '电动车-6.ON', shortName: '6.ON', en: 'EV-6.ON', tag: 'ELECTRIC / TUNING',
-      desc: '单速电驱两轮车。初始极速、加速、抓地、耐久全部为 1 级，前三项可以一路改到 10 级，车身耐久固定 1 级。',
+      desc: '单速电驱两轮车。初始四项都是 1 级；满改后极速 / 加速 / 抓地全场最高，但抓地会随速度从 10 实时掉到 1，车身耐久固定 1 级。',
       color: '#63e2c4', color2: '#155e57', trim: '#effffb', glow: 'rgba(99,226,196,.44)',
       maxSpeed: 290, accel: 150, grip: 4.5, turn: 2.9, mass: 0.7, baseHp: 64,
       radius: 14, length: 46, width: 16, stat: { speed: 1, accel: 1, grip: 1, durability: 1 },
-      passive: '电驱改装：极速、加速、抓地可改到 10 级；车身耐久固定为 1 级，无法强化。'
+      passive: '电驱极限：满改后极速、加速、抓地均为全场最高；抓地评分随速度实时下降，低速 10、极速 1。车身耐久固定为 1 级，无法强化。'
     },
     nightraven: {
       key: 'nightraven', name: '银冠·夜鸦', shortName: '银冠', en: 'SILVERCROWN', tag: 'BOSS / MIRROR',
@@ -2380,9 +2632,9 @@ kbd {
     },
     candy: {
       key: 'candy', name: '爱心·桃乐丝', shortName: '爱心', en: 'HEART · DOROTHY', tag: 'BOSS / HEART',
-      desc: 'BOSS 模式 B-0 通关后带回的爱心战车。粉黑调校，轻巧、抓地稳定。',
+      desc: 'BOSS 模式 B-0 通关后带回的爱心战车。垂耳兔女王的座驾，粉黑调校，轻巧、抓地稳定。',
       color: '#ff9ec2', color2: '#8e2448', trim: '#fff5fa', glow: 'rgba(255,158,194,.48)',
-      model: 'candy', emblem: 'heart',
+      model: 'candy', animal: 'rabbit', emblem: 'heart',
       maxSpeed: 338, accel: 192, grip: 7.9, turn: 2.96, mass: 1.2, baseHp: 140,
       radius: 20, length: 50, width: 26, stat: { speed: 7, accel: 8, grip: 8, durability: 8 },
       passive: '爱心调校：受到的伤害降低 5%。'
@@ -2415,6 +2667,105 @@ kbd {
       id: 'heartRed', name: '心意红', desc: '像一颗还没说出口的感谢。',
       color: '#ff7f9f', color2: '#8e2448', trim: '#ffe9ef', glow: 'rgba(255,127,159,.42)',
       badge: 'thanks'
+    },
+    sakura: {
+      id: 'sakura', name: '樱花巡游', desc: '粉色底漆与散落花瓣，全车通用。',
+      color: '#ffb7cf', color2: '#7a2948', trim: '#fff4f8', glow: 'rgba(255,183,207,.44)',
+      pattern: 'petals', patternColor: 'rgba(116,27,57,.62)', gacha: true
+    },
+    circuit: {
+      id: 'circuit', name: '霓虹电路', desc: '黑色底漆上的青绿电路纹，全车通用。',
+      color: '#203f3a', color2: '#071a1a', trim: '#b9ffe7', glow: 'rgba(96,255,204,.4)',
+      pattern: 'circuit', patternColor: 'rgba(118,255,216,.72)', gacha: true
+    },
+    starlight: {
+      id: 'starlight', name: '深空星轨', desc: '深蓝底漆与银白星点，全车通用。',
+      color: '#24325e', color2: '#0a1026', trim: '#e7efff', glow: 'rgba(150,180,255,.4)',
+      pattern: 'stars', patternColor: 'rgba(240,246,255,.8)', gacha: true
+    },
+    emberCrack: {
+      id: 'emberCrack', name: '熔岩裂纹', desc: '黑曜石底漆上的熔金裂纹，全车通用。',
+      color: '#32201c', color2: '#090807', trim: '#ffb45d', glow: 'rgba(255,122,48,.42)',
+      pattern: 'cracks', patternColor: 'rgba(255,156,72,.8)', gacha: true
+    },
+    riftEcho: {
+      id: 'riftEcho', name: '回声涟漪', desc: '峡谷青底漆上的同心回声圈，全车通用。',
+      color: '#2d4d47', color2: '#0b1c1b', trim: '#c8fff0', glow: 'rgba(120,225,198,.4)',
+      pattern: 'rings', patternColor: 'rgba(178,255,236,.65)', gacha: true
+    },
+    checker: {
+      id: 'checker', name: '终点格纹', desc: '黑白格纹，赛车场最直接的语言。',
+      color: '#d7d9d4', color2: '#15171a', trim: '#ffffff', glow: 'rgba(230,240,240,.38)',
+      pattern: 'checker', patternColor: 'rgba(18,20,23,.7)', gacha: true
+    },
+    aurora: {
+      id: 'aurora', name: '极光带', desc: '青紫渐变与横向极光带，全车通用。',
+      color: '#3c376b', color2: '#0b1830', trim: '#dff9ff', glow: 'rgba(120,210,255,.4)',
+      pattern: 'bands', patternColor: 'rgba(123,255,222,.55)', gacha: true
+    },
+    queenGold: {
+      id: 'queenGold', name: '女王金纹', desc: '粉黑底漆上的金色心纹，垂耳兔女王的收藏。',
+      color: '#d88aa8', color2: '#3a121f', trim: '#f2c76b', glow: 'rgba(242,199,107,.44)',
+      pattern: 'hearts', patternColor: 'rgba(242,199,107,.8)', gacha: true
+    }
+  };
+
+  const DRIVERS = {
+    rookie: {
+      id: 'rookie', name: '阿岚', en: 'ALAN', rarity: 'common', icon: 'A', color: '#d8ff43',
+      desc: '刚拿到赛照的新人，稳定、不挑车。', mods: { speed: 0.01, accel: 0.01 }
+    },
+    nori: {
+      id: 'nori', name: '诺里', en: 'NORI', rarity: 'rare', icon: 'N', color: '#55e6ff',
+      desc: '轮胎店出身，弯前刹车比别人早半拍。', mods: { grip: 0.03, turn: 0.02, speed: -0.015 }
+    },
+    vale: {
+      id: 'vale', name: '维尔', en: 'VALE', rarity: 'rare', icon: 'V', color: '#ff7f9f',
+      desc: '直道猎手，擅长把车顶到极速。', mods: { speed: 0.025, accel: 0.01, grip: -0.01 }
+    },
+    mika: {
+      id: 'mika', name: '米卡', en: 'MIKA', rarity: 'rare', icon: 'M', color: '#ffb45d',
+      desc: '起跑型车手，油门响应更快。', mods: { accel: 0.03, speed: 0.005, hp: -0.02 }
+    },
+    tetsu: {
+      id: 'tetsu', name: '铁叔', en: 'TETSU', rarity: 'epic', icon: 'T', color: '#ff5d36',
+      desc: '老派重装车手，撞了也不一定减速。', mods: { hp: 0.06, speed: -0.01 }
+    },
+    yue: {
+      id: 'yue', name: '月见', en: 'YUE', rarity: 'epic', icon: 'Y', color: '#dfe8ee',
+      desc: '月光组的夜跑专家，抓地与出弯都更细。', mods: { grip: 0.02, accel: 0.02, speed: -0.005 }
+    },
+    zero: {
+      id: 'zero', name: '零', en: 'ZERO', rarity: 'legendary', icon: '0', color: '#a98bff',
+      desc: '没有档案的车手。速度、转向都很快，但车身更脆。', mods: { speed: 0.02, turn: 0.03, hp: -0.04 }
+    },
+    sena: {
+      id: 'sena', name: '赛娜', en: 'SENA', rarity: 'legendary', icon: 'S', color: '#f2c76b',
+      desc: '全能型冠军车手，所有项目都略强一点。', mods: { speed: 0.015, accel: 0.015, grip: 0.015, hp: -0.03 }
+    }
+  };
+  const DRIVER_KEYS = Object.keys(DRIVERS);
+
+  const GACHA_RARITY = {
+    common: { name: '普通', weight: 60, refund: 20, rank: 1 },
+    rare: { name: '稀有', weight: 30, refund: 60, rank: 2 },
+    epic: { name: '史诗', weight: 8.5, refund: 180, rank: 3 },
+    legendary: { name: '传说', weight: 1.5, refund: 500, rank: 4 }
+  };
+  const PAINT_GACHA_RARITY = {
+    sakura: 'common', checker: 'common', circuit: 'rare', starlight: 'rare', aurora: 'rare',
+    emberCrack: 'epic', riftEcho: 'epic', queenGold: 'legendary'
+  };
+  const GACHA_POOLS = {
+    paint: {
+      title: '通用涂装',
+      desc: '所有车辆都能使用的图案涂装，不改变车辆数值。',
+      items: Object.values(PAINTS).filter(p => p.gacha).map(p => ({ kind: 'paint', id: p.id, rarity: PAINT_GACHA_RARITY[p.id] || 'common' }))
+    },
+    driver: {
+      title: '车手档案',
+      desc: '全局装备一名车手，提供很小的车辆数据修正。',
+      items: DRIVER_KEYS.map(id => ({ kind: 'driver', id, rarity: DRIVERS[id].rarity }))
     }
   };
 
@@ -2580,7 +2931,7 @@ kbd {
       id: 5, chapter: 0, order: 4, code: '0-5', name: '赤焰火山', en: 'MOLTEN CALDERA', theme: 'lava',
       width: 232, laps: 3, diff: 5, reward: 900, boss: true, bossType: 'candy',
       recommended: ['apex', 'titan', 'blitz'],
-      blurb: '熔岩之上的粉色防线。爱心·桃乐丝在终点线前等你。',
+      blurb: '熔岩之上的粉色防线。垂耳兔女王·爱心·桃乐丝在终点线前等你。',
       points: [
         [500, 930], [600, 560], [910, 380], [1210, 500], [1470, 340],
         [1790, 430], [2050, 620], [2250, 900], [2130, 1130], [2290, 1370],
@@ -2822,7 +3173,7 @@ kbd {
       id: 9000, code: 'B-0', name: '桃心剧场', en: 'HEART THEATRE',
       chapter: 0, theme: 'neon', environment: 'neon', bossType: 'candy', bossMode: true, boss: true,
       car: 'candy', badge: 'thanks', bossHp: 1000, reward: 700, width: 220, laps: 999,
-      desc: '体验版守关者的剧场。爱心·桃乐丝在这里等你，击破她可以带回爱心战车并给感谢徽章镀色。',
+      desc: '体验版守关者的剧场。垂耳兔女王·爱心·桃乐丝在这里等你，击破她可以带回爱心战车并给感谢徽章镀色。',
       points: [
         [650, 3900], [540, 3260], [820, 2640], [650, 1960], [980, 1320], [1560, 940],
         [2220, 780], [2840, 1000], [3380, 700], [3980, 920], [4560, 700], [5160, 940],
@@ -3061,13 +3412,15 @@ kbd {
     model: 'boss', auraColor: '120,220,200', hudClass: 'rift', animal: 'bat', emblem: 'echo',
     passive: '回声定位：在隧道与尘雾里锁定玩家；血量 50% 后进入回声阶段。'
   };
+  const CANDY_AURA_RADIUS = 190;
   const CANDY = {
     key: 'candy', kind: 'candy', name: '爱心·桃乐丝', en: 'HEART · DOROTHY',
     color: '#ff9ec2', color2: '#b23d68', trim: '#fff5fa',
     maxSpeed: 334, accel: 188, grip: 8.0, turn: 2.95,
     mass: 1.3, baseHp: 230, radius: 23, length: 56, width: 30,
-    model: 'candy', auraColor: '255,158,194', hudClass: 'candy', emblem: 'heart',
-    passive: '两个被动：无', active: '爱心盾：8 秒内免疫全部伤害。'
+    model: 'candy', animal: 'rabbit', auraColor: '255,158,194', hudClass: 'candy', emblem: 'heart',
+    passive: '被动1 垂耳聆听：玩家在附近释放技能时，桃乐丝听见并短暂加速。被动2 女王威仪：爱心盾开启时，本应受到伤害的 50% 反弹给攻击者。',
+    active: '爱心盾：8 秒内免疫全部伤害；开启期间将本应受到伤害的 50% 反弹；周围 190 范围让玩家最高速度降低 20%。'
   };
 
   const NIGHTRAVEN = {
@@ -3239,15 +3592,18 @@ kbd {
     },
     {
       ...CANDY, id: 'candy', category: 'boss', isBoss: true,
-      stage: '0-5 · 体验版', stats: { speed: 6, accel: 6, durability: 8 },
-      passives: ['无', '无'],
-      passiveDetails: ['没有被动技能。', '没有第二被动。'],
-      active: { name: '爱心盾', desc: '展开 8 秒粉色护盾，期间免疫全部伤害；冷却 20 秒。' },
-      skill: '爱心盾', skillDesc: '展开 8 秒粉色护盾，期间免疫全部伤害。',
-      skillMeta: '冷却 20 秒 · 可重复',
-      skillDetail: '每隔 20 秒展开一次持续 8 秒的粉色护盾。护盾期间免疫撞击、导弹、电磁脉冲等全部伤害，但不会阻止车体被顶开。',
-      counter: '护盾亮起时不要交「追踪导弹」；先跟车、等粉色圆环消失，再交爆发技能。',
-      desc: '粉色的体验版守关者。没有被动，只靠爱心盾把比赛拖进她的节奏。'
+      stage: '0-5 / B-0 · 体验版', stats: { speed: 6, accel: 6, durability: 8 },
+      passives: ['垂耳聆听', '女王威仪'],
+      passiveDetails: [
+        '玩家在 340 范围内释放技能时，桃乐丝会听见并立即获得 1.6 秒 12% 加速；该被动有 8 秒内置冷却。',
+        '爱心盾开启时，桃乐丝将本应受到伤害的 50% 反弹给攻击者。反弹伤害会被玩家自己的护盾或无敌帧正常抵挡。'
+      ],
+      active: { name: '爱心盾', desc: '展开 8 秒粉色护盾，期间免疫全部伤害；将本应受到伤害的 50% 反弹；周围 190 范围让玩家最高速度降低 20%。' },
+      skill: '爱心盾', skillDesc: '8 秒免疫全部伤害，反弹 50% 伤害，并形成 20% 减速光环。',
+      skillMeta: '冷却 20 秒 · 护盾持续 8 秒',
+      skillDetail: '展开持续 8 秒的爱心盾，期间免疫撞击、导弹、电磁脉冲等全部伤害；护盾开启时将本应受到伤害的 50% 反弹给攻击者。护盾外圈是半径 190 的减速光环，玩家在范围内最高速度降低 20%。',
+      counter: '护盾期间不要连续交导弹和电磁脉冲，反弹会把你自己的爆发打回来；先离开粉色光环、等护盾消失，再用高伤害技能。',
+      desc: '垂耳兔女王。她不是靠数值压人，而是靠听技能、压走线和爱心盾把比赛拖进自己的节奏。'
     },
     {
       ...NIGHTRAVEN, id: 'nightraven', category: 'boss', isBoss: true,
@@ -3310,7 +3666,13 @@ kbd {
       badges: { thanks: false, silverMirror: false, emberSeal: false, riftSeal: false },
       badgeTiers: { thanks: 1, silverMirror: 1, emberSeal: 1, riftSeal: 1 },
       paints,
-      progress: 0, results: {}, failures: {}, sound: true, runs: 0
+      progress: 0, results: {}, failures: {}, sound: true, runs: 0,
+      cameraMode: 'world', music: true, musicVolume: 0.35, sfxVolume: 0.8,
+      driver: 'rookie', driverOwned: { rookie: true }, paintUnlocks: {},
+      gacha: {
+        paint: { pulls: 0, epicPity: 0, legendPity: 0 },
+        driver: { pulls: 0, epicPity: 0, legendPity: 0 }
+      }
     };
   };
 
@@ -3332,6 +3694,12 @@ kbd {
         badges: { ...base.badges, ...(data.badges || {}) },
         badgeTiers: { ...base.badgeTiers, ...(data.badgeTiers || {}) },
         paints: { ...base.paints, ...(data.paints || {}) },
+        driverOwned: { rookie: true, ...(data.driverOwned || {}) },
+        paintUnlocks: { ...(data.paintUnlocks || {}) },
+        gacha: {
+          paint: { ...base.gacha.paint, ...(data.gacha?.paint || {}) },
+          driver: { ...base.gacha.driver, ...(data.gacha?.driver || {}) }
+        },
         results: data.results || {},
         failures: data.failures || {},
         progress: clamp(Number(data.progress) || 0, 0, 5)
@@ -3343,6 +3711,19 @@ kbd {
         persist();
       }
       if (!CARS[save.car]) save.car = 'apex';
+      save.driverOwned.rookie = true;
+      for (const id of DRIVER_KEYS) save.driverOwned[id] = !!save.driverOwned[id];
+      if (!DRIVERS[save.driver] || !save.driverOwned[save.driver]) save.driver = 'rookie';
+      for (const key of ['paint', 'driver']) {
+        const g = save.gacha[key];
+        g.pulls = Math.max(0, Number(g.pulls) || 0);
+        g.epicPity = clamp(Number(g.epicPity) || 0, 0, 60);
+        g.legendPity = clamp(Number(g.legendPity) || 0, 0, 120);
+      }
+      if (save.cameraMode !== 'heading' && save.cameraMode !== 'world') save.cameraMode = 'world';
+      save.music = save.music !== false;
+      save.musicVolume = save.musicVolume == null ? 0.35 : clamp(Number(save.musicVolume) || 0, 0, 1);
+      save.sfxVolume = save.sfxVolume == null ? 0.8 : clamp(Number(save.sfxVolume) || 0, 0, 1);
       for (const key of CAR_ORDER) save.ownedCars[key] = !!save.ownedCars[key];
       for (const key of BADGE_KEYS) save.badgeTiers[key] = clamp(Number(save.badgeTiers[key]) || 1, 1, 3);
       save.ownedCars.blitz = true; save.ownedCars.titan = true; save.ownedCars.apex = true;
@@ -3391,10 +3772,16 @@ kbd {
     return !skill.badge || !!save.badges[skill.badge];
   }
 
+  function isPaintUnlocked(paint) {
+    if (!paint || paint.id === 'stock') return true;
+    if (paint.badge && !save.badges[paint.badge]) return false;
+    if (paint.gacha && !save.paintUnlocks?.[paint.id]) return false;
+    return true;
+  }
+
   function getPaintFor(carKey) {
     const paint = PAINTS[save.paints[carKey]] || PAINTS.stock;
-    if (paint.badge && !save.badges[paint.badge]) return PAINTS.stock;
-    return paint;
+    return isPaintUnlocked(paint) ? paint : PAINTS.stock;
   }
 
   function grantBadge(id) {
@@ -3424,9 +3811,27 @@ kbd {
   function isCarOwned(key) { return !!save.ownedCars?.[key]; }
   function isBossCar(key) { return key === 'nightraven' || key === 'ironjaw' || key === 'rift' || key === 'candy'; }
 
-  function buildSpec(key, { player = false, aiScale = 1 } = {}) {
+  const BOSS_CAR_BADGE = {
+    nightraven: 'silverMirror', ironjaw: 'emberSeal', rift: 'riftSeal', candy: 'thanks'
+  };
+  function bossBadgeTier(key) {
+    const badge = BOSS_CAR_BADGE[key];
+    return badge ? clamp(Number(save.badgeTiers?.[badge]) || 1, 1, 3) : 1;
+  }
+  function bossUpgradeEfficiency(key) {
+    if (!isBossCar(key)) return 1;
+    return bossBadgeTier(key) === 3 ? 1 : bossBadgeTier(key) === 2 ? 0.75 : 0.5;
+  }
+
+  function buildSpec(key, { player = false, aiScale = 1, upOverride = null } = {}) {
     const base = CARS[key];
-    const up = player ? upgradesOf(key) : { tires: 0, engine: 0, body: 0 };
+    const rawUp = upOverride || (player ? upgradesOf(key) : { tires: 0, engine: 0, body: 0 });
+    const eff = upOverride ? 1 : bossUpgradeEfficiency(key);
+    const up = (player || upOverride)
+      ? { tires: rawUp.tires * eff, engine: rawUp.engine * eff, body: rawUp.body * eff }
+      : { tires: 0, engine: 0, body: 0 };
+    const bossPassiveMul = key === 'ironjaw' ? 1 - 0.2 * eff
+      : key === 'rift' || key === 'candy' ? 1 - 0.05 * eff : 1;
     const spec = {
       ...base,
       maxSpeed: base.maxSpeed * (1 + 0.055 * up.engine) * aiScale,
@@ -3434,23 +3839,70 @@ kbd {
       grip: base.grip * (1 + 0.075 * up.tires),
       turn: base.turn * (1 + 0.03 * up.tires),
       maxHp: base.baseHp + 18 * up.body,
-      damageMul: (1 - 0.03 * up.body) * (key === 'titan' ? 0.75 : key === 'ironjaw' ? 0.8 : key === 'rift' || key === 'candy' ? 0.95 : 1),
+      damageMul: (1 - 0.03 * up.body) * (key === 'titan' ? 0.75 : bossPassiveMul),
       up
     };
     if (key === 'ev') {
-      spec.maxSpeed = base.maxSpeed * (1 + 0.08 * up.engine);
-      spec.accel = base.accel * (1 + 0.09 * up.engine);
-      spec.grip = base.grip * (1 + 0.20 * up.tires);
-      spec.turn = base.turn * (1 + 0.05 * up.tires);
+      // EV passive: maxed speed / accel / grip are the highest in the game; HP stays fixed at 64.
+      spec.maxSpeed = base.maxSpeed * (1 + 0.145 * up.engine);
+      spec.accel = base.accel * (1 + 0.20 * up.engine);
+      spec.grip = base.grip * (1 + 0.40 * up.tires);
+      spec.turn = base.turn * (1 + 0.055 * up.tires);
       spec.maxHp = base.baseHp;
       spec.damageMul = 1;
+    }
+    if (player && !upOverride) {
+      const driver = DRIVERS[save.driver] || DRIVERS.rookie;
+      const m = driver.mods || {};
+      spec.maxSpeed *= 1 + (m.speed || 0);
+      spec.accel *= 1 + (m.accel || 0);
+      spec.grip *= 1 + (m.grip || 0);
+      spec.turn *= 1 + (m.turn || 0);
+      spec.maxHp = Math.round(spec.maxHp * (1 + (m.hp || 0)));
+      spec.driver = driver.id;
     }
     return spec;
   }
 
+  let ratingRefsCache = null;
+  function getRatingRefs() {
+    if (ratingRefsCache) return ratingRefsCache;
+    const maxUp = { tires: MAX_UPGRADE, engine: MAX_UPGRADE, body: MAX_UPGRADE };
+    const specs = CAR_ORDER.map(key => ({
+      stock: buildSpec(key, { player: false }),
+      max: buildSpec(key, { player: true, upOverride: maxUp })
+    }));
+    const ref = (pick) => {
+      const values = specs.map(s => pick(s.stock)).concat(specs.map(s => pick(s.max)));
+      return { min: Math.min(...values), max: Math.max(...values) };
+    };
+    ratingRefsCache = {
+      speed: ref(s => s.maxSpeed),
+      accel: ref(s => s.accel),
+      grip: ref(s => s.grip),
+      durability: ref(s => s.maxHp)
+    };
+    return ratingRefsCache;
+  }
+
+  function ratingsForSpec(spec) {
+    const refs = getRatingRefs();
+    const score = (value, r) => Math.round(clamp(1 + 9 * (value - r.min) / Math.max(0.001, r.max - r.min), 1, 10) * 10) / 10;
+    return {
+      speed: score(spec.maxSpeed, refs.speed),
+      accel: score(spec.accel, refs.accel),
+      grip: score(spec.grip, refs.grip),
+      durability: score(spec.maxHp, refs.durability)
+    };
+  }
+
+  function stockRatings(key) {
+    return ratingsForSpec(buildSpec(key, { player: false }));
+  }
+
   /* ───────────────────────── audio ───────────────────────── */
   const AudioFX = {
-    ctx: null, master: null, engineOsc: null, engineGain: null, engineFilter: null, enabled: true,
+    ctx: null, master: null, comp: null, sfx: null, sfxVolume: 0.8, engineOsc: null, engineGain: null, engineFilter: null, enabled: true,
     init() {
       if (this.ctx) return;
       const AC = window.AudioContext || window.webkitAudioContext;
@@ -3458,8 +3910,18 @@ kbd {
       try {
         this.ctx = new AC();
         this.master = this.ctx.createGain();
-        this.master.gain.value = this.enabled ? 0.55 : 0;
-        this.master.connect(this.ctx.destination);
+        this.master.gain.value = this.enabled ? 3.4 : 0;
+        this.comp = this.ctx.createDynamicsCompressor();
+        this.comp.threshold.value = -10;
+        this.comp.knee.value = 12;
+        this.comp.ratio.value = 8;
+        this.comp.attack.value = 0.004;
+        this.comp.release.value = 0.25;
+        this.master.connect(this.comp);
+        this.comp.connect(this.ctx.destination);
+        this.sfx = this.ctx.createGain();
+        this.sfx.gain.value = this.sfxVolume;
+        this.sfx.connect(this.master);
       } catch (e) { this.ctx = null; }
     },
     resume() {
@@ -3468,8 +3930,12 @@ kbd {
     },
     setEnabled(on) {
       this.enabled = on;
-      if (this.master && this.ctx) this.master.gain.setTargetAtTime(on ? 0.55 : 0, this.ctx.currentTime, 0.03);
+      if (this.master && this.ctx) this.master.gain.setTargetAtTime(on ? 3.4 : 0, this.ctx.currentTime, 0.03);
       if (this.engineGain && this.ctx) this.engineGain.gain.setTargetAtTime(on ? 0.025 : 0, this.ctx.currentTime, 0.05);
+    },
+    setSfxVolume(v) {
+      this.sfxVolume = clamp(Number(v) || 0, 0, 1);
+      if (this.sfx && this.ctx) this.sfx.gain.setTargetAtTime(this.sfxVolume, this.ctx.currentTime, 0.04);
     },
     tone(freq = 440, dur = 0.1, type = 'sine', vol = 0.16, slide = 0) {
       if (!this.enabled) return;
@@ -3481,7 +3947,7 @@ kbd {
       g.gain.setValueAtTime(0.0001, t);
       g.gain.exponentialRampToValueAtTime(vol, t + 0.01);
       g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-      o.connect(g); g.connect(this.master);
+      o.connect(g); g.connect(this.sfx || this.master);
       o.start(t); o.stop(t + dur + 0.03);
     },
     noise(dur = 0.18, vol = 0.12, filter = 1100) {
@@ -3494,7 +3960,7 @@ kbd {
       const src = this.ctx.createBufferSource(); src.buffer = buf;
       const f = this.ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = filter;
       const g = this.ctx.createGain(); g.gain.value = vol; g.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + dur);
-      src.connect(f); f.connect(g); g.connect(this.master); src.start();
+      src.connect(f); f.connect(g); g.connect(this.sfx || this.master); src.start();
     },
     click() { this.tone(520, 0.045, 'triangle', 0.055, 60); },
     tick() { this.tone(640, 0.09, 'square', 0.07); },
@@ -3506,6 +3972,7 @@ kbd {
     missile() { this.noise(0.24, 0.13, 2400); this.tone(240, 0.3, 'sawtooth', 0.06, 520); },
     emp() { this.tone(1200, 0.3, 'sawtooth', 0.07, -900); this.noise(0.28, 0.1, 1800); },
     repair() { this.tone(420, 0.15, 'sine', 0.06, 300); this.tone(630, 0.25, 'sine', 0.05, 420); },
+    coin() { this.tone(880, 0.07, 'triangle', 0.06, 180); setTimeout(() => this.tone(1320, 0.12, 'triangle', 0.045, 220), 70); },
     win() {
       [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => this.tone(f, 0.28, 'triangle', 0.09), i * 110));
     },
@@ -3527,7 +3994,7 @@ kbd {
       this.engineGain.gain.setTargetAtTime(0.023, t, 0.2);
       this.engineOsc.connect(this.engineFilter);
       this.engineFilter.connect(this.engineGain);
-      this.engineGain.connect(this.master);
+      this.engineGain.connect(this.sfx || this.master);
       this.engineOsc.start();
     },
     updateEngine(speed, maxSpeed, active) {
@@ -3546,6 +4013,184 @@ kbd {
         setTimeout(() => { try { osc.stop(); } catch (e) {} }, 300);
       } catch (e) {}
       this.engineOsc = null; this.engineGain = null; this.engineFilter = null;
+    }
+  };
+
+  /* ───────────────────────── procedural background music ───────────────────────── */
+  const MUSIC_THEMES = {
+    menu: {
+      bpm: 76, root: 130.81, scale: [0, 2, 4, 7, 9],
+      chords: [[0, 4, 7, 11], [-3, 2, 7, 9], [0, 4, 9, 12], [-5, 0, 4, 7]],
+      arp: [0, 2, 4, 3, 1, 3, 4, 2], bass: [1, 0, 0, 0, 0, 0, 0, 0],
+      padVol: 0.043, arpVol: 0.019, bellVol: 0.01, bellOctave: 12,
+      drums: false, delay: 0.08, wave: 'sine', bassWave: 'sine'
+    },
+    chapter0: {
+      bpm: 112, root: 146.83, scale: [0, 2, 4, 7, 9], chords: [[0, 4, 7], [-3, 2, 7], [0, 4, 9], [-5, 0, 7]],
+      arp: [0, 2, 4, 3, 1, 3, 4, 2], bass: [1, 0, 1, 0, 1, 0, 0, 0],
+      padVol: 0.03, arpVol: 0.028, bellVol: 0.016, drums: true, kickVol: 0.05, delay: 0.1, wave: 'triangle', bassWave: 'triangle'
+    },
+    chapter1: {
+      bpm: 78, root: 98, scale: [0, 2, 3, 7, 10], chords: [[0, 3, 7], [-2, 0, 5], [-4, 0, 7], [-2, 3, 7]],
+      arp: [0, 2, 3, 4, 3, 2, 1, 0], bass: [0, 0, 0, 0, 0, 0, 0, 0],
+      padVol: 0.042, arpVol: 0.018, bellVol: 0.023, drums: false, delay: 0.36, wave: 'sine', bassWave: 'sine'
+    },
+    chapter2: {
+      bpm: 132, root: 82.41, scale: [0, 1, 5, 7, 8], chords: [[0, 5, 8], [0, 1, 7], [0, 5, 8], [-2, 3, 7]],
+      arp: [0, 1, 2, 3, 4, 3, 2, 1], bass: [1, 0, 1, 0, 1, 0, 1, 0],
+      padVol: 0.032, arpVol: 0.024, bellVol: 0.014, drums: true, kickVol: 0.075, delay: 0.08, wave: 'triangle', bassWave: 'sawtooth'
+    },
+    chapter3: {
+      bpm: 96, root: 110, scale: [0, 2, 5, 7, 9], chords: [[0, 5, 9], [-2, 3, 7], [0, 7, 9], [-5, 0, 5]],
+      arp: [0, 2, 1, 3, 4, 3, 2, 1], bass: [1, 0, 0, 0, 1, 0, 0, 0],
+      padVol: 0.03, arpVol: 0.026, bellVol: 0.018, drums: true, kickVol: 0.035, delay: 0.3, wave: 'triangle', bassWave: 'sine'
+    },
+    boss: {
+      bpm: 142, root: 73.42, scale: [0, 1, 5, 6, 8], chords: [[0, 1, 5], [0, 3, 7], [-2, 1, 5], [0, 1, 8]],
+      arp: [0, 1, 2, 3, 4, 3, 2, 1], bass: [1, 0, 1, 0, 1, 0, 1, 1],
+      padVol: 0.035, arpVol: 0.027, bellVol: 0.015, drums: true, kickVol: 0.085, delay: 0.12, wave: 'square', bassWave: 'sawtooth'
+    }
+  };
+
+  const Music = {
+    ctx: null, bus: null, delay: null, feedback: null, wet: null, noiseBuffer: null,
+    themeName: '', theme: null, step: 0, nextTime: 0, enabled: true, volume: 0.35,
+    init() {
+      if (this.ctx || !AudioFX.ctx) return;
+      const ctx = AudioFX.ctx;
+      this.ctx = ctx;
+      this.bus = ctx.createGain();
+      this.bus.gain.value = this.enabled ? this.volume : 0;
+      this.bus.connect(AudioFX.master);
+      this.delay = ctx.createDelay(1.2);
+      this.delay.delayTime.value = 0.3;
+      this.feedback = ctx.createGain();
+      this.feedback.gain.value = 0.24;
+      this.wet = ctx.createGain();
+      this.wet.gain.value = 0.12;
+      this.delay.connect(this.feedback);
+      this.feedback.connect(this.delay);
+      this.delay.connect(this.wet);
+      this.wet.connect(this.bus);
+      const len = Math.max(1, (ctx.sampleRate * 0.5) | 0);
+      this.noiseBuffer = ctx.createBuffer(1, len, ctx.sampleRate);
+      const d = this.noiseBuffer.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    },
+    setTheme(name) {
+      const theme = MUSIC_THEMES[name] || MUSIC_THEMES.menu;
+      if (this.themeName === name && this.theme === theme) return;
+      this.themeName = name;
+      this.theme = theme;
+      this.step = 0;
+      this.nextTime = this.ctx ? this.ctx.currentTime + 0.08 : 0;
+    },
+    setEnabled(on) {
+      this.enabled = !!on;
+      if (this.bus && this.ctx) this.bus.gain.setTargetAtTime(this.enabled ? this.volume : 0, this.ctx.currentTime, 0.08);
+    },
+    setVolume(v) {
+      this.volume = clamp(Number(v) || 0, 0, 1);
+      if (this.bus && this.ctx) this.bus.gain.setTargetAtTime(this.enabled ? this.volume : 0, this.ctx.currentTime, 0.08);
+    },
+    noteHz(theme, semis) {
+      return theme.root * Math.pow(2, semis / 12);
+    },
+    note(freq, time, dur, vol, type = 'sine', filter = 2200, send = 0) {
+      if (!this.ctx || !this.bus) return;
+      const ctx = this.ctx;
+      const o = ctx.createOscillator();
+      const f = ctx.createBiquadFilter();
+      const g = ctx.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(Math.max(20, freq), time);
+      f.type = 'lowpass';
+      f.frequency.setValueAtTime(filter, time);
+      f.Q.value = 0.7;
+      g.gain.setValueAtTime(0.0001, time);
+      g.gain.exponentialRampToValueAtTime(Math.max(0.0002, vol), time + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, time + dur);
+      o.connect(f); f.connect(g); g.connect(this.bus);
+      if (send > 0) {
+        const s = ctx.createGain();
+        s.gain.value = send;
+        g.connect(s); s.connect(this.delay);
+      }
+      o.start(time); o.stop(time + dur + 0.04);
+    },
+    kick(time, vol = 0.06) {
+      if (!this.ctx || !this.bus) return;
+      const ctx = this.ctx;
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(118, time);
+      o.frequency.exponentialRampToValueAtTime(42, time + 0.18);
+      g.gain.setValueAtTime(vol, time);
+      g.gain.exponentialRampToValueAtTime(0.0001, time + 0.22);
+      o.connect(g); g.connect(this.bus);
+      o.start(time); o.stop(time + 0.24);
+    },
+    hat(time, vol = 0.018) {
+      if (!this.ctx || !this.bus || !this.noiseBuffer) return;
+      const ctx = this.ctx;
+      const s = ctx.createBufferSource();
+      s.buffer = this.noiseBuffer;
+      const f = ctx.createBiquadFilter();
+      f.type = 'highpass'; f.frequency.value = 5200;
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(vol, time);
+      g.gain.exponentialRampToValueAtTime(0.0001, time + 0.04);
+      s.connect(f); f.connect(g); g.connect(this.bus);
+      s.start(time); s.stop(time + 0.05);
+    },
+    scheduleStep(step, time) {
+      const t = this.theme;
+      if (!t) return;
+      const stepLen = 60 / t.bpm / 2;
+      const s = step % 32;
+      const bar = Math.floor(step / 8) % t.chords.length;
+      const chord = t.chords[bar];
+      const scale = t.scale;
+      if (s % 8 === 0) {
+        for (let i = 0; i < chord.length; i++) {
+          const hz = this.noteHz(t, chord[i]);
+          this.note(hz, time, stepLen * 7.2, t.padVol * (i === 0 ? 1 : 0.72), 'triangle', 720, 0);
+        }
+      }
+      if (t.bass && t.bass[(step / 4 | 0) % t.bass.length] && s % 4 === 0) {
+        this.note(this.noteHz(t, chord[0] - 12), time, stepLen * 3.1, 0.055, t.bassWave, 220, 0);
+      }
+      if (s % 2 === 0) {
+        const idx = t.arp[((step / 2) | 0) % t.arp.length];
+        const semis = scale[idx] + 12;
+        this.note(this.noteHz(t, semis), time, stepLen * 1.65, t.arpVol, t.wave, 2800, t.delay);
+      }
+      if (t.bellVol && s % 8 === 4) {
+        const semis = scale[(step / 8 | 0) % scale.length] + (t.bellOctave || 24);
+        this.note(this.noteHz(t, semis), time, stepLen * 3.6, t.bellVol, 'sine', 4200, t.delay * 1.6);
+      }
+      if (t.drums) {
+        if (s % 4 === 0) this.kick(time, t.kickVol || 0.05);
+        if (s % 2 === 1) this.hat(time, (t.kickVol || 0.05) * 0.32);
+      }
+    },
+    update() {
+      if (!this.enabled || !AudioFX.enabled) return;
+      const ctx = AudioFX.ctx;
+      if (!ctx || ctx.state !== 'running') return;
+      this.init();
+      if (!this.bus) return;
+      if (!this.theme) this.setTheme('menu');
+      const t = this.theme;
+      const now = ctx.currentTime;
+      if (!this.nextTime || this.nextTime < now - 0.45) this.nextTime = now + 0.06;
+      const stepLen = 60 / t.bpm / 2;
+      let guard = 0;
+      while (this.nextTime < now + 0.28 && guard++ < 8) {
+        this.scheduleStep(this.step, this.nextTime);
+        this.step++;
+        this.nextTime += stepLen;
+      }
     }
   };
 
@@ -3738,11 +4383,12 @@ kbd {
   }
 
   /* ───────────────────────── track rendering ───────────────────────── */
-  function drawGround(track, camX, camY, time, zoom) {
+  function drawGround(track, camX, camY, time, zoom, rotate = 0, anchorX = view.w / 2, anchorY = view.h / 2) {
     const th = track.theme;
     camX = Number.isFinite(camX) ? camX : 0;
     camY = Number.isFinite(camY) ? camY : 0;
     zoom = Number.isFinite(zoom) && zoom > 0 ? zoom : (Number.isFinite(view.zoom) && view.zoom > 0 ? view.zoom : 1);
+    rotate = Number.isFinite(rotate) ? rotate : 0;
     ctx.setTransform(view.dpr, 0, 0, view.dpr, 0, 0);
     const sky = ctx.createLinearGradient(0, 0, 0, view.h);
     sky.addColorStop(0, th.sky);
@@ -3752,7 +4398,8 @@ kbd {
 
     const z = zoom || view.zoom;
     ctx.save();
-    ctx.translate(view.w / 2, view.h / 2);
+    ctx.translate(anchorX, anchorY);
+    ctx.rotate(rotate);
     ctx.scale(z, z);
     ctx.translate(-camX, -camY);
 
@@ -4313,6 +4960,38 @@ kbd {
       g.moveTo(hl * 0.5, -hw * 0.25); g.quadraticCurveTo(hl * 0.8, -hw * 0.7, hl * 0.96, -hw * 0.55);
       g.moveTo(hl * 0.5, hw * 0.25); g.quadraticCurveTo(hl * 0.8, hw * 0.7, hl * 0.96, hw * 0.55);
       g.stroke();
+    } else if (a === 'rabbit') {
+      const tier = car.bossTier || 1;
+      const dark = tier === 3;
+      const earFill = dark ? 'rgba(38,10,23,.96)' : '#fff5f8';
+      const earTrim = dark ? '#f7f1de' : tier === 2 ? '#f2c76b' : '#6c1f3a';
+      const earInner = dark ? 'rgba(255,158,194,.7)' : '#ff9ec2';
+      // only two long ears and a small round tail; no face, eyes or whiskers
+      const tailR = Math.max(3.4, hw * 0.29);
+      g.fillStyle = earFill;
+      g.beginPath(); g.arc(-hl * 0.94, 0, tailR, 0, TAU); g.fill();
+      g.strokeStyle = earTrim; g.lineWidth = 1; g.stroke();
+      g.fillStyle = earInner;
+      g.beginPath(); g.arc(-hl * 0.97, 0, tailR * 0.36, 0, TAU); g.fill();
+      for (const side of [-1, 1]) {
+        const baseX = hl * 0.12;
+        const baseY = side * hw * 0.2;
+        const tipX = hl * 1.02;
+        const tipY = side * hw * 0.33;
+        g.fillStyle = earFill;
+        g.beginPath();
+        g.moveTo(baseX, baseY - hw * 0.18);
+        g.quadraticCurveTo(hl * 0.52, side * hw * 0.1, tipX, tipY);
+        g.quadraticCurveTo(hl * 0.64, side * hw * 0.44, baseX, baseY + hw * 0.18);
+        g.closePath(); g.fill();
+        g.strokeStyle = earTrim; g.lineWidth = 1.5; g.stroke();
+        g.fillStyle = earInner;
+        g.beginPath();
+        g.moveTo(baseX + 2, baseY - hw * 0.08);
+        g.quadraticCurveTo(hl * 0.56, side * hw * 0.16, hl * 0.9, tipY * 0.9);
+        g.quadraticCurveTo(hl * 0.58, side * hw * 0.36, baseX + 2, baseY + hw * 0.08);
+        g.closePath(); g.fill();
+      }
     } else if (a === 'cat') {
       for (const side of [-1, 1]) {
         // upright ears at the front of the roof, not swept wings
@@ -4788,15 +5467,6 @@ kbd {
         g.beginPath(); g.moveTo(hl * 0.5, side * hw * 0.2); g.lineTo(hl * 1.12, side * hw * 0.3); g.stroke();
       }
     } else if (car.kind === 'candy') {
-      for (const side of [-1, 1]) {
-        g.fillStyle = 'rgba(255,158,194,.72)';
-        g.beginPath();
-        g.moveTo(-hl * 0.1, side * hw * 0.58);
-        g.quadraticCurveTo(-hl * 0.52, side * (hw + 18), -hl * 0.86, side * (hw + 4));
-        g.quadraticCurveTo(-hl * 0.6, side * hw * 0.48, -hl * 0.18, side * hw * 0.46);
-        g.closePath(); g.fill();
-        g.strokeStyle = 'rgba(242,199,107,.72)'; g.lineWidth = 1; g.stroke();
-      }
       g.strokeStyle = 'rgba(242,199,107,.65)'; g.lineWidth = 1;
       g.beginPath(); g.arc(0, 0, 34, 0, TAU); g.stroke();
     } else if (car.animal === 'bat') {
@@ -4838,17 +5508,6 @@ kbd {
       g.strokeStyle = bone; g.lineWidth = 1.3; g.stroke();
     }
     if (car.kind === 'candy') {
-      for (const side of [-1, 1]) {
-        g.fillStyle = 'rgba(63,12,31,.94)';
-        g.beginPath();
-        g.moveTo(-hl * 0.04, side * hw * 0.54);
-        g.quadraticCurveTo(-hl * 0.62, side * (hw + 24), -hl * 1.02, side * (hw + 7));
-        g.quadraticCurveTo(-hl * 0.74, side * hw * 0.38, -hl * 0.18, side * hw * 0.4);
-        g.closePath(); g.fill();
-        g.strokeStyle = bone; g.lineWidth = 1.1; g.stroke();
-        g.strokeStyle = 'rgba(255,158,194,.65)'; g.lineWidth = 0.8;
-        g.beginPath(); g.moveTo(-hl * 0.18, side * hw * 0.44); g.lineTo(-hl * 0.86, side * (hw + 8)); g.stroke();
-      }
       g.fillStyle = bone;
       g.beginPath();
       g.moveTo(-hl * 0.42, -hw * 0.42); g.lineTo(-hl * 0.58, -hw * 1.1); g.lineTo(-hl * 0.18, -hw * 0.65);
@@ -4914,15 +5573,6 @@ kbd {
         g.beginPath(); g.moveTo(x, hw * 0.32); g.lineTo(x + 3, hw * 0.72); g.stroke();
       }
     } else if (car.kind === 'candy') {
-      for (const side of [-1, 1]) {
-        g.fillStyle = 'rgba(255,158,194,.72)';
-        g.beginPath();
-        g.moveTo(-hl * 0.1, side * hw * 0.58);
-        g.quadraticCurveTo(-hl * 0.52, side * (hw + 18), -hl * 0.86, side * (hw + 4));
-        g.quadraticCurveTo(-hl * 0.6, side * hw * 0.48, -hl * 0.18, side * hw * 0.46);
-        g.closePath(); g.fill();
-        g.strokeStyle = 'rgba(242,199,107,.72)'; g.lineWidth = 1; g.stroke();
-      }
       g.strokeStyle = 'rgba(242,199,107,.65)'; g.lineWidth = 1;
       g.beginPath(); g.arc(0, 0, 34, 0, TAU); g.stroke();
     } else if (car.animal === 'bat') {
@@ -4951,6 +5601,104 @@ kbd {
     }
     g.restore();
   }
+  function drawPaintPattern(g, car, spec) {
+    if (!car.pattern) return;
+    const hl = spec.length / 2, hw = spec.width / 2;
+    const col = car.patternColor || 'rgba(255,255,255,.65)';
+    g.save();
+    carBodyPath(g, spec, car.model || car.key);
+    g.clip();
+    g.strokeStyle = col;
+    g.fillStyle = col;
+    if (car.pattern !== 'checker' && car.pattern !== 'bands') {
+      g.globalAlpha = 0.16;
+      g.fillRect(-hl * 0.3, -hw * 0.12, hl * 1.28, hw * 0.24);
+    }
+    if (car.pattern === 'circuit') {
+      g.lineWidth = 1.3;
+      g.globalAlpha = 0.9;
+      for (let i = -2; i <= 2; i++) {
+        g.beginPath();
+        g.moveTo(-hl * 0.85, i * hw * 0.3);
+        g.lineTo(-hl * 0.2, i * hw * 0.3);
+        g.lineTo(-hl * 0.05, i * hw * 0.48);
+        g.lineTo(hl * 0.55, i * hw * 0.48);
+        g.stroke();
+        g.beginPath(); g.arc(hl * 0.55, i * hw * 0.48, 1.2, 0, TAU); g.fill();
+      }
+    } else if (car.pattern === 'checker') {
+      const s = 5.6;
+      g.globalAlpha = 0.82;
+      for (let x = -hl; x < hl; x += s) {
+        for (let y = -hw; y < hw; y += s) {
+          if ((Math.floor(x / s) + Math.floor(y / s)) % 2 === 0) g.fillRect(x, y, s, s);
+        }
+      }
+    } else if (car.pattern === 'petals') {
+      g.globalAlpha = 0.55;
+      g.lineWidth = 1.2;
+      g.beginPath();
+      g.moveTo(-hl * 0.78, -hw * 0.45);
+      g.quadraticCurveTo(-hl * 0.08, -hw * 0.8, hl * 0.72, -hw * 0.25);
+      g.moveTo(-hl * 0.6, hw * 0.62);
+      g.quadraticCurveTo(hl * 0.1, hw * 0.52, hl * 0.62, hw * 0.78);
+      g.stroke();
+      for (let k = 0; k < 14; k++) {
+        const t = k / 13;
+        const px = -hl * 0.72 + t * hl * 1.48;
+        const py = -hw * 0.38 + Math.sin(t * 3.2) * hw * 0.42 + (k % 2 ? hw * 0.26 : 0);
+        g.globalAlpha = 0.62 + (k % 3) * 0.1;
+        g.beginPath(); g.ellipse(px, py, 4.4, 2.2, k, 0, TAU); g.fill();
+      }
+    } else if (car.pattern === 'stars') {
+      for (let k = 0; k < 18; k++) {
+        const px = -hl * 0.8 + (k * 41 % 100) / 100 * hl * 1.6;
+        const py = -hw * 0.76 + (k * 67 % 100) / 100 * hw * 1.52;
+        g.globalAlpha = 0.6 + (k % 4) * 0.08;
+        g.beginPath(); g.arc(px, py, 1.2 + (k % 3) * 0.8, 0, TAU); g.fill();
+      }
+    } else if (car.pattern === 'cracks') {
+      g.lineWidth = 1.5;
+      g.globalAlpha = 0.9;
+      for (let k = 0; k < 5; k++) {
+        const start = -hl * 0.78 + k * hl * 0.33;
+        g.beginPath();
+        g.moveTo(start, -hw * 0.8);
+        g.lineTo(start + 4, -hw * 0.2);
+        g.lineTo(start - 2, hw * 0.12);
+        g.lineTo(start + 5, hw * 0.8);
+        g.stroke();
+      }
+    } else if (car.pattern === 'rings') {
+      g.lineWidth = 1.4;
+      g.globalAlpha = 0.8;
+      for (let k = 1; k <= 4; k++) {
+        g.beginPath(); g.ellipse(-hl * 0.2, 0, hl * 0.18 * k, hw * 0.16 * k, 0, 0, TAU); g.stroke();
+      }
+    } else if (car.pattern === 'bands') {
+      g.lineWidth = 5;
+      for (let k = -2; k <= 2; k++) {
+        g.globalAlpha = 0.2 + (k + 2) * 0.08;
+        g.beginPath();
+        g.moveTo(-hl, k * hw * 0.32);
+        g.lineTo(hl, k * hw * 0.32 - hw * 0.3);
+        g.stroke();
+      }
+    } else if (car.pattern === 'hearts') {
+      for (let k = 0; k < 7; k++) {
+        const px = -hl * 0.65 + (k * 29 % 100) / 100 * hl * 1.25;
+        const py = -hw * 0.55 + (k * 47 % 100) / 100 * hw * 1.1;
+        const s = 3.8;
+        g.beginPath();
+        g.moveTo(px, py + s);
+        g.bezierCurveTo(px - s * 1.7, py - s * 0.3, px - s * 0.5, py - s * 1.2, px, py - s * 0.35);
+        g.bezierCurveTo(px + s * 0.5, py - s * 1.2, px + s * 1.7, py - s * 0.3, px, py + s);
+        g.fill();
+      }
+    }
+    g.restore();
+  }
+
   function drawCarAt(g, car, time, opts = {}) {
     const spec = car.spec;
     const model = car.model || car.key;
@@ -5056,6 +5804,7 @@ kbd {
       ? (car.kind === 'nightraven' ? 'rgba(235,248,255,.8)' : 'rgba(255,188,150,.55)')
       : 'rgba(255,255,255,.26)';
     g.stroke();
+    drawPaintPattern(g, car, spec);
 
     if (car.roleColor) {
       g.strokeStyle = car.roleColor;
@@ -5385,6 +6134,20 @@ kbd {
     if (car.heartBarrier > 0 && !car.wrecked) {
       g.save();
       g.translate(car.x, car.y);
+      if (car.kind === 'candy') {
+        const pulse = 1 + Math.sin(time * 3.5) * 0.02;
+        const aura = g.createRadialGradient(0, 0, spec.length * 0.3, 0, 0, CANDY_AURA_RADIUS * pulse);
+        aura.addColorStop(0, 'rgba(255,158,194,.045)');
+        aura.addColorStop(0.72, 'rgba(255,158,194,.055)');
+        aura.addColorStop(1, 'rgba(255,158,194,0)');
+        g.fillStyle = aura;
+        g.beginPath(); g.arc(0, 0, CANDY_AURA_RADIUS * pulse, 0, TAU); g.fill();
+        g.strokeStyle = 'rgba(255,158,194,.52)';
+        g.lineWidth = 1.4;
+        g.setLineDash([8, 10]);
+        g.beginPath(); g.arc(0, 0, CANDY_AURA_RADIUS * pulse, 0, TAU); g.stroke();
+        g.setLineDash([]);
+      }
       const p = 1 + Math.sin(time * 6) * 0.035;
       g.strokeStyle = 'rgba(255,158,194,.92)';
       g.lineWidth = 2.2;
@@ -5440,9 +6203,10 @@ kbd {
     }
   }
 
-  function drawCarLabels(g, car) {
+  function drawCarLabels(g, car, sx = null, sy = null) {
     if (car.wrecked || car.finished && car.isPlayer) return;
-    const y = car.y - car.spec.length * 0.72 - 8;
+    const x = sx == null ? car.x : sx;
+    const y = sy == null ? car.y - car.spec.length * 0.72 - 8 : sy;
     if (car.isBoss) {
       const silver = car.kind === 'nightraven';
       const candy = car.kind === 'candy';
@@ -5450,29 +6214,29 @@ kbd {
       g.textAlign = 'center'; g.textBaseline = 'bottom';
       g.fillStyle = silver ? 'rgba(230,244,252,.96)'
         : candy ? 'rgba(255,184,208,.98)' : 'rgba(255,128,90,.95)';
-      g.fillText((silver ? '♛ ' : candy ? '♥ ' : car.emblem === 'echo' ? '◎ ' : '✹ ') + car.name, car.x, y - 4);
+      g.fillText((silver ? '♛ ' : candy ? '♥ ' : car.emblem === 'echo' ? '◎ ' : '✹ ') + car.name, x, y - 4);
       return;
     }
     if (car.isPlayer) {
       g.fillStyle = 'rgba(216,255,67,.95)';
       g.beginPath();
-      g.moveTo(car.x, y); g.lineTo(car.x - 5, y - 7); g.lineTo(car.x + 5, y - 7);
+      g.moveTo(x, y); g.lineTo(x - 5, y - 7); g.lineTo(x + 5, y - 7);
       g.closePath(); g.fill();
       g.font = '700 7px "Arial Narrow", sans-serif';
       g.textAlign = 'center'; g.textBaseline = 'bottom';
-      g.fillText('YOU', car.x, y - 9);
+      g.fillText('YOU', x, y - 9);
       return;
     }
     g.font = '500 8px "Microsoft YaHei", sans-serif';
     g.textAlign = 'center'; g.textBaseline = 'bottom';
     g.fillStyle = car.roleColor ? rgba(car.roleColor, 0.86) : 'rgba(230,235,240,.58)';
-    g.fillText(car.name, car.x, y);
+    g.fillText(car.name, x, y);
     if (car.health < car.maxHp - 0.5) {
       const w = 28, h = 2.6;
       g.fillStyle = 'rgba(0,0,0,.45)';
-      g.fillRect(car.x - w / 2, y + 2, w, h);
+      g.fillRect(x - w / 2, y + 2, w, h);
       g.fillStyle = car.health / car.maxHp > 0.35 ? 'rgba(109,255,171,.8)' : 'rgba(255,77,94,.85)';
-      g.fillRect(car.x - w / 2, y + 2, w * clamp(car.health / car.maxHp, 0, 1), h);
+      g.fillRect(x - w / 2, y + 2, w * clamp(car.health / car.maxHp, 0, 1), h);
     }
   }
 
@@ -5485,7 +6249,7 @@ kbd {
     }
   }
 
-  function drawParticles(particles) {
+  function drawParticles(particles, rotate = 0) {
     for (const p of particles) {
       const a = clamp(p.life / p.maxLife, 0, 1);
       ctx.globalAlpha = a * (p.alpha == null ? 1 : p.alpha);
@@ -5494,10 +6258,14 @@ kbd {
         ctx.lineWidth = p.size;
         ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x - p.vx * 0.025, p.y - p.vy * 0.025); ctx.stroke();
       } else if (p.type === 'text') {
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(-rotate);
         ctx.fillStyle = p.color;
         ctx.font = `600 ${p.size}px "Bahnschrift Condensed", "Microsoft YaHei", sans-serif`;
         ctx.textAlign = 'center';
-        ctx.fillText(p.text, p.x, p.y);
+        ctx.fillText(p.text, 0, 0);
+        ctx.restore();
       } else {
         ctx.fillStyle = p.color;
         ctx.beginPath(); ctx.arc(p.x, p.y, p.size * (p.type === 'smoke' ? (1.8 - a * 0.8) : a), 0, TAU); ctx.fill();
@@ -5578,6 +6346,7 @@ kbd {
       color: painted?.color || color || CARS[key]?.color || '#d8ff43',
       color2: painted?.color2 || color2 || CARS[key]?.color2 || '#68720b',
       trim: painted?.trim || trim || CARS[key]?.trim || '#ffffff',
+      pattern: painted?.pattern || '', patternColor: painted?.patternColor || '',
       x: 0, y: 0, angle: 0, vx: 0, vy: 0, vf: 0, vl: 0,
       steer: 0, wheelSteer: 0, throttle: 0, brake: 0, handbrake: 0,
       maxHp: spec.maxHp, health: spec.maxHp, healthShown: spec.maxHp,
@@ -5627,7 +6396,7 @@ kbd {
       time: 0, state: opts.attract ? 'racing' : 'countdown', countdown: 3.0,
       particles: [], skids: [], effects: [], projectiles: [], hazards: [],
       inputHistory: [], rivalAlertCd: 0,
-      shake: 0, camera: { x: 0, y: 0, zoom: view.zoom, initialised: false },
+      shake: 0, camera: { x: 0, y: 0, zoom: view.zoom, rotate: 0, initialised: false },
       wrongTimer: 0, finishDelay: 0, results: null,
       alertTimer: 0, alertText: '', lastCount: null, engineStarted: false,
       stats: { topSpeed: 0, drifts: 0, damage: 0 }
@@ -6033,6 +6802,7 @@ kbd {
   function startBossMode(stageId, bossTier = 1) {
     const stage = bossStageById(stageId);
     if (!stage) return;
+    Music.setTheme('boss');
     const track = trackCache[stage.id] || buildTrack(stage);
     trackCache[stage.id] = track;
     track.laps = 999;
@@ -6068,7 +6838,9 @@ kbd {
     $('bossIcon').textContent = stage.bossType === 'nightraven' ? '◉' : stage.bossType === 'candy' ? '♥' : stage.bossType === 'rift' ? '◎' : '✹';
     $('bossName').textContent = stage.bossType === 'nightraven' ? NIGHTRAVEN.name : stage.bossType === 'candy' ? CANDY.name : stage.bossType === 'rift' ? RIFT.name : BOSS.name;
     $('bossKind').textContent = 'BOSS HUNT · 超大地图' + (world.bossTier > 1 ? ' · D' + world.bossTier : '');
-    $('bossHint').textContent = world.bossTier === 3 ? 'D3 · 完全兽化 · 奖励 ×2' : world.bossTier === 2 ? 'D2 · 金印兽化 · 奖励 ×1.5' : '无圈数 · 无排名 · 击破即通关';
+    $('bossHint').textContent = stage.bossType === 'candy'
+      ? '垂耳聆听 · 女王威仪 50% 反弹 · 护盾全免 + 20% 减速光环'
+      : world.bossTier === 3 ? 'D3 · 完全兽化 · 奖励 ×2' : world.bossTier === 2 ? 'D2 · 金印兽化 · 奖励 ×1.5' : '无圈数 · 无排名 · 击破即通关';
     $('bossPhase').textContent = 'HUNT';
     $('bossFill').style.width = '100%';
     $('bossLearned').classList.add('hidden');
@@ -6232,6 +7004,7 @@ kbd {
 
   function openBossMode() {
     mode = 'menu';
+    Music.setTheme('boss');
     renderBossMode();
     showScreen('bossmode');
     updateCredits();
@@ -6343,6 +7116,7 @@ kbd {
   $('tierClose').onclick = () => $('bossTierOverlay').classList.add('hidden');
   function startRace(levelId, bossTier = 1) {
     const level = TRACKS.find(t => t.id === levelId) || TRACKS[0];
+    Music.setTheme(level.boss ? 'boss' : 'chapter' + (level.chapter || 0));
     const track = trackCache[level.id] || buildTrack(level);
     trackCache[level.id] = track;
     const world = createWorld(track, { level, bossTier });
@@ -6381,9 +7155,9 @@ kbd {
       $('bossIcon').textContent = night ? '◉' : candy ? '♥' : rift ? '◎' : '✹';
       $('bossName').textContent = night ? NIGHTRAVEN.name : candy ? CANDY.name : rift ? RIFT.name : BOSS.name;
       $('bossKind').textContent = (night ? '章节 BOSS · 月环守夜人'
-        : candy ? '小 BOSS · 粉盾' : rift ? '章节 BOSS · 峡谷回声' : iron ? '章节 BOSS · 熔核暴君' : '小 BOSS') + (bossTier > 1 ? ' · D' + bossTier : '');
+        : candy ? 'BOSS · 垂耳兔女王' : rift ? '章节 BOSS · 峡谷回声' : iron ? '章节 BOSS · 熔核暴君' : '小 BOSS') + (bossTier > 1 ? ' · D' + bossTier : '');
       $('bossHint').textContent = night ? '模仿 · 学习 · 致命超越'
-        : candy ? '无被动 · 爱心盾 8s 全免' : rift ? '回声定位 · 落石预言 · 50% 回声阶段' : iron ? '熔岩装甲 · 火球 · 油污' : '撞线即胜 / 击溃可提前终结';
+        : candy ? '垂耳聆听 · 女王威仪 50% 反弹 · 护盾全免 + 20% 减速光环' : rift ? '回声定位 · 落石预言 · 50% 回声阶段' : iron ? '熔岩装甲 · 火球 · 油污' : '撞线即胜 / 击溃可提前终结';
       $('bossPhase').textContent = night ? 'MIRROR' : candy ? 'HEART' : rift ? 'ECHO' : 'PHASE 1';
       $('bossFill').style.width = '100%';
       $('bossLearned').classList.add('hidden');
@@ -6441,6 +7215,9 @@ kbd {
     }
     if (e.code === 'Escape') {
       e.preventDefault();
+      if (!$('gachaOverlay').classList.contains('hidden')) { closeGacha(); return; }
+      if (!$('driverOverlay').classList.contains('hidden')) { closeDrivers(); return; }
+      if (!$('settingsOverlay').classList.contains('hidden')) { closeSettings(); return; }
       if (mode === 'race' || mode === 'paused') togglePause();
       else if (!$('helpModal').classList.contains('hidden')) closeHelp();
       else if (screenName === 'badges') {
@@ -6528,6 +7305,7 @@ kbd {
     if (car.slip > 0) targetSpeed *= 0.72;
     if (car.windup) targetSpeed *= 0.62;
     if (car.isBoss && car.enraged) targetSpeed *= 1.025;
+    if (car.candyHaste > 0) targetSpeed *= 1.12;
     if (car.beyond) targetSpeed *= 1.08;
     if (car.overheat > 0) targetSpeed *= 0.8;
     if (car.isGuard && world.boss?.beyond) targetSpeed *= 0.55;
@@ -6631,7 +7409,10 @@ kbd {
     const enrageMul = car.isBoss && car.enraged ? 1.045 : 1;
     const slowMul = car.slow > 0 ? 0.56 : 1;
     const transcendMul = (car.transcend > 0 ? 1.08 : 1) * (car.beyond ? 1.08 : 1) * (car.overheat > 0 ? 0.82 : 1);
-    const maxSpeed = spec.maxSpeed * nitroMul * enrageMul * slowMul * transcendMul * (car.gravelTimer > 0 ? 0.82 : 1);
+    const candyBoss = world.boss && world.boss.kind === 'candy' && world.boss.heartBarrier > 0 ? world.boss : null;
+    const candyAuraMul = car.isPlayer && candyBoss
+      && Math.hypot(car.x - candyBoss.x, car.y - candyBoss.y) < CANDY_AURA_RADIUS ? 0.8 : 1;
+    const maxSpeed = spec.maxSpeed * nitroMul * enrageMul * slowMul * transcendMul * candyAuraMul * (car.gravelTimer > 0 ? 0.82 : 1);
     const accel = spec.accel * (car.nitro > 0 ? 1.7 : 1) * (car.slow > 0 ? 0.45 : 1)
       * (car.transcend > 0 ? 1.2 : 1) * (car.beyond ? 1.18 : 1) * (car.overheat > 0 ? 0.7 : 1);
 
@@ -6652,7 +7433,9 @@ kbd {
     // drag + surface grip
     const coasting = car.throttle <= 0 && car.brake <= 0;
     vf *= Math.exp(-(coasting ? 0.5 : 0.055) * dt);
-    let grip = spec.grip * (car.transcend > 0 ? 1.2 : 1) * (car.beyond ? 1.12 : 1);
+    const evSpeedRatio = car.key === 'ev' ? clamp(Math.abs(vf) / Math.max(1, spec.maxSpeed), 0, 1) : 0;
+    const evGripFade = car.key === 'ev' ? 1 - 0.75 * evSpeedRatio : 1;
+    let grip = spec.grip * evGripFade * (car.transcend > 0 ? 1.2 : 1) * (car.beyond ? 1.12 : 1);
     if (car.handbrake) grip *= 0.24;
     if (car.slip > 0) grip *= 0.16;
     if (car.slow > 0) grip *= 0.7;
@@ -6809,14 +7592,14 @@ kbd {
       // 月盾冲撞的额外撞击
       if (a.ramming > 0 && b.bumpCd <= 0) {
         b.bumpCd = 0.35;
-        damageCar(world, b, a.emberCharge > 0 ? 18 : 8, 'ram');
+        damageCar(world, b, a.emberCharge > 0 ? 18 : 8, 'ram', a);
         b.spin = Math.max(b.spin, a.emberCharge > 0 ? 0.55 : 0.35);
         b.spinDir = Math.sign(b.x - a.x) || 1;
         spawnBurst(world, b.x, b.y, a.emberCharge > 0 ? 14 : 8, { type: 'flame', color: a.emberCharge > 0 ? '#ff8a3d' : '#e8f4fb', speed: 150, size: 2, life: 0.5 });
       }
       if (b.ramming > 0 && a.bumpCd <= 0) {
         a.bumpCd = 0.35;
-        damageCar(world, a, b.emberCharge > 0 ? 18 : 8, 'ram');
+        damageCar(world, a, b.emberCharge > 0 ? 18 : 8, 'ram', b);
         a.spin = Math.max(a.spin, b.emberCharge > 0 ? 0.55 : 0.35);
         a.spinDir = Math.sign(a.x - b.x) || 1;
         spawnBurst(world, a.x, a.y, b.emberCharge > 0 ? 14 : 8, { type: 'flame', color: b.emberCharge > 0 ? '#ff8a3d' : '#e8f4fb', speed: 150, size: 2, life: 0.5 });
@@ -6827,11 +7610,11 @@ kbd {
       }
       if (a.isPlayer && a.shield > 0 && b.shieldHitCd <= 0) {
         b.shieldHitCd = 0.4;
-        damageCar(world, b, b.isBoss ? 8 : 13, 'shield');
+        damageCar(world, b, b.isBoss ? 8 : 13, 'shield', a);
       }
       if (b.isPlayer && b.shield > 0 && a.shieldHitCd <= 0) {
         a.shieldHitCd = 0.4;
-        damageCar(world, a, a.isBoss ? 8 : 13, 'shield');
+        damageCar(world, a, a.isBoss ? 8 : 13, 'shield', b);
       }
     }
   }
@@ -6839,7 +7622,14 @@ kbd {
   function damageCar(world, car, amount, source, from) {
     if (!car || car.wrecked || car.retired || car.finished) return;
     if (car === world.player && world.state === 'countdown') return;
+    const incoming = Math.max(0.5, amount * (car.spec.damageMul || 1));
     if (car.heartBarrier > 0) {
+      if (source !== 'reflect' && from && from !== car && !from.wrecked && !from.retired && !from.finished && !from.isBoss) {
+        const reflected = Math.max(0.5, incoming * 0.5);
+        spawnRing(world, car.x, car.y, 34, 0.55, '#ff9ec2', 2.5);
+        spawnBurst(world, car.x, car.y, 10, { type: 'spark', color: '#ffd0de', speed: 170, size: 2, life: 0.45 });
+        damageCar(world, from, reflected, 'reflect', car);
+      }
       spawnBurst(world, car.x, car.y, 4, { type: 'spark', color: '#ffb0c8', speed: 80, size: 1.7, life: 0.35 });
       return;
     }
@@ -6858,7 +7648,7 @@ kbd {
       if (car.isPlayer) AudioFX.shield();
       return;
     }
-    const dmg = Math.max(0.5, amount * (car.spec.damageMul || 1));
+    const dmg = incoming;
     if (car.kind === 'nightraven' && !car.transcendUsed && car.health - dmg <= 0) {
       car.health = 1;
       car.transcendUsed = true;
@@ -7093,7 +7883,10 @@ kbd {
     const cd = car.skillCds[index];
     if (cd > 0.02) return;
     const base = SKILLS[id];
-    const cooldownMul = car.key === 'apex' ? 0.85 : car.key === 'nightraven' ? 0.9 : car.key === 'rift' ? 0.92 : 1;
+    const bossEff = bossUpgradeEfficiency(car.key);
+    const cooldownMul = car.key === 'apex' ? 0.85
+      : car.key === 'nightraven' ? 1 - 0.1 * bossEff
+        : car.key === 'rift' ? 1 - 0.08 * bossEff : 1;
     car.skillCds[index] = base.cd * cooldownMul;
     if (id === 'nitro') {
       car.nitro = 2.2;
@@ -7115,7 +7908,7 @@ kbd {
         if (other === car || other.wrecked || other.retired) continue;
         if (Math.hypot(other.x - car.x, other.y - car.y) > 300) continue;
         other.slow = Math.max(other.slow, 1.8);
-        if (other.isBoss) damageCar(world, other, 36, 'echo');
+        if (other.isBoss) damageCar(world, other, 36, 'echo', car);
         spawnBurst(world, other.x, other.y, 8, { type: 'spark', color: '#bff5e6', speed: 100, size: 2, life: 0.45 });
       }
       world.shake = Math.max(world.shake, 8);
@@ -7135,8 +7928,8 @@ kbd {
         const d = Math.hypot(other.x - car.x, other.y - car.y);
         if (d < 280) {
           other.slow = Math.max(other.slow, 2.4);
-          if (other.isBoss) damageCar(world, other, 30, 'emp');
-          else damageCar(world, other, 16, 'emp');
+          if (other.isBoss) damageCar(world, other, 30, 'emp', car);
+          else damageCar(world, other, 16, 'emp', car);
           spawnBurst(world, other.x, other.y, 8, { type: 'spark', color: '#a98bff', speed: 100, size: 2, life: 0.4 });
         }
       }
@@ -7186,6 +7979,7 @@ kbd {
       showAlert('超越', false, 900);
     }
     if (world.boss && world.boss.kind === 'nightraven') bossObserveSkill(world, id);
+    if (world.boss && world.boss.kind === 'candy') candyHearSkill(world);
     updateSkillHUD(car);
   }
 
@@ -7351,6 +8145,8 @@ kbd {
     if (!boss || boss.retired || boss.finished || boss.wrecked) return;
     boss.heartBarrier = Math.max(0, boss.heartBarrier - dt);
     boss.shieldCd = Math.max(0, boss.shieldCd - dt);
+    boss.candyHaste = Math.max(0, (boss.candyHaste || 0) - dt);
+    boss.candyHasteCd = Math.max(0, (boss.candyHasteCd || 0) - dt);
     if (world.state !== 'racing' || boss.shieldCd > 0) return;
     boss.shieldCd = 20;
     boss.heartBarrier = 8;
@@ -7360,6 +8156,18 @@ kbd {
     spawnBurst(world, boss.x, boss.y, 14, { type: 'spark', color: '#ffb0c8', speed: 90, size: 2.4, life: 0.7 });
     AudioFX.shield();
     world.shake = Math.max(world.shake, 3);
+  }
+
+  function candyHearSkill(world) {
+    const boss = world.boss;
+    const player = world.player;
+    if (!boss || boss.kind !== 'candy' || boss.retired || boss.wrecked || !player) return;
+    if ((boss.candyHasteCd || 0) > 0) return;
+    if (Math.hypot(player.x - boss.x, player.y - boss.y) > 340) return;
+    boss.candyHaste = 1.6;
+    boss.candyHasteCd = 8;
+    showAlert('桃乐丝 · 垂耳聆听', false, 900);
+    spawnRing(world, boss.x, boss.y, 44, 0.7, '#ffb0c8', 2);
   }
 
   function updateBoss(world, dt) {
@@ -7577,15 +8385,15 @@ kbd {
         if (d < car.spec.radius + p.radius) {
           const protectedNow = car.shield > 0 || car.invuln > 0;
           if (p.type === 'missile') {
-            damageCar(world, car, p.damage, 'missile');
+            damageCar(world, car, p.damage, 'missile', p.owner);
             if (!protectedNow) car.slow = Math.max(car.slow, 1.9);
             spawnExplosion(world, p.x, p.y, 14);
             world.shake = Math.max(world.shake, car.isPlayer ? 10 : 4);
           } else if (p.type === 'autoBullet') {
-            damageCar(world, car, p.damage, 'auto');
+            damageCar(world, car, p.damage, 'auto', p.owner);
             spawnBurst(world, p.x, p.y, 6, { type: 'spark', color: '#d8ff43', speed: 120, size: 1.6, life: 0.3 });
           } else {
-            damageCar(world, car, p.damage, 'fireball');
+            damageCar(world, car, p.damage, 'fireball', p.owner);
             if (!protectedNow) {
               car.spin = 0.3; car.spinDir = Math.random() < 0.5 ? -1 : 1;
               if (p.slow) car.slow = Math.max(car.slow, p.slow);
@@ -7844,20 +8652,49 @@ kbd {
         return pb > pa ? b : a;
       }, world.cars[0]);
     }
+    const headingMode = save.cameraMode === 'heading' && !world.attract;
     const speed = Math.max(0, target.vf || 0);
-    const lookX = target.vx * (world.attract ? 0.42 : 0.27);
-    const lookY = target.vy * (world.attract ? 0.42 : 0.27);
     const speedRatio = clamp(speed / Math.max(1, target.spec.maxSpeed), 0, 1);
     if (!world.camera.initialised) {
       world.camera.x = target.x; world.camera.y = target.y;
+      world.camera.mode = headingMode ? 'heading' : 'world';
+      world.camera.rotate = headingMode ? -target.angle - Math.PI / 2 : 0;
       world.camera.initialised = true;
     }
-    const follow = 1 - Math.exp(-(world.attract ? 2.0 : 4.2) * dt);
-    world.camera.x = lerp(world.camera.x, target.x + lookX, follow);
-    world.camera.y = lerp(world.camera.y, target.y + lookY, follow);
-    const baseZoom = view.zoom * (world.attract ? 0.9 : 1);
-    const targetZoom = baseZoom * (1 - speedRatio * 0.075);
-    world.camera.zoom = lerp(world.camera.zoom, targetZoom, 1 - Math.exp(-2.3 * dt));
+
+    if (headingMode) {
+      // Car-anchored camera: the car is the rotation center, not the screen center.
+      const travelHeading = Math.atan2(target.vy || 0, target.vx || 0);
+      const useTravel = speed > 55 && (target.vf || 0) > 30;
+      const sourceAngle = useTravel ? travelHeading : target.angle;
+      const targetRotate = -sourceAngle - Math.PI / 2;
+      if (world.camera.mode !== 'heading') {
+        world.camera.mode = 'heading';
+        world.camera.rotate = targetRotate;
+      }
+      const delta = wrapAngle(targetRotate - world.camera.rotate);
+      let step = Math.abs(delta) < 0.055 ? 0 : delta * (1 - Math.exp(-3.4 * dt));
+      const maxStep = 1.25 * dt;
+      step = clamp(step, -maxStep, maxStep);
+      world.camera.rotate = wrapAngle(world.camera.rotate + step);
+      world.camera.x = target.x;
+      world.camera.y = target.y;
+      world.camera.zoom = view.zoom;
+    } else {
+      if (world.camera.mode !== 'world') {
+        world.camera.mode = 'world';
+        world.camera.rotate = 0;
+      }
+      const lookX = target.vx * (world.attract ? 0.42 : 0.27);
+      const lookY = target.vy * (world.attract ? 0.42 : 0.27);
+      const follow = 1 - Math.exp(-(world.attract ? 2.0 : 4.2) * dt);
+      world.camera.x = lerp(world.camera.x, target.x + lookX, follow);
+      world.camera.y = lerp(world.camera.y, target.y + lookY, follow);
+      world.camera.rotate = 0;
+      const baseZoom = view.zoom * (world.attract ? 0.9 : 1);
+      const targetZoom = baseZoom * (1 - speedRatio * 0.075);
+      world.camera.zoom = lerp(world.camera.zoom, targetZoom, 1 - Math.exp(-2.3 * dt));
+    }
   }
 
   function canAssistLevel(levelId) {
@@ -8530,20 +9367,27 @@ kbd {
 
   function renderWorld(world, time) {
     const cam = world.camera;
-    const shake = world.shake;
+    const headingMode = save.cameraMode === 'heading' && !world.attract && !!world.player;
+    const shake = headingMode ? 0 : world.shake;
     const shakeX = shake > 0.2 ? (Math.random() - 0.5) * shake : 0;
     const shakeY = shake > 0.2 ? (Math.random() - 0.5) * shake : 0;
-    const z = cam.zoom || view.zoom;
+    const z = headingMode ? (view.zoom || 1) : (cam.zoom || view.zoom);
+    const anchorX = view.w / 2;
+    const anchorY = headingMode ? view.h * 0.54 : view.h / 2;
+    const renderCamX = headingMode ? world.player.x : cam.x + shakeX;
+    const renderCamY = headingMode ? world.player.y : cam.y + shakeY;
+    const rotation = headingMode ? (cam.rotate || 0) : 0;
 
-    drawGround(world.track, cam.x + shakeX, cam.y + shakeY, time, z);
+    drawGround(world.track, renderCamX, renderCamY, time, z, rotation, anchorX, anchorY);
 
     ctx.setTransform(view.dpr, 0, 0, view.dpr, 0, 0);
     ctx.save();
-    ctx.translate(view.w / 2, view.h / 2);
+    ctx.translate(anchorX, anchorY);
+    ctx.rotate(rotation);
     ctx.scale(z, z);
-    ctx.translate(-(cam.x + shakeX), -(cam.y + shakeY));
+    ctx.translate(-renderCamX, -renderCamY);
 
-    drawScenery(world.track, cam.x, cam.y, time);
+    drawScenery(world.track, renderCamX, renderCamY, time);
     drawTrack(world.track, time);
     drawSkids(world.skids);
     drawHazards(world, time);
@@ -8631,16 +9475,26 @@ kbd {
         drawCarAt(ctx, car, time, { alpha: blink ? 0.35 : 1 });
       }
     }
-    for (const car of sorted) {
-      if (!car.wrecked) drawCarLabels(ctx, car);
-    }
-
     // non-oil effects above cars
     drawEffects(world, time);
     drawAttackWarning(world, time);
     drawProjectiles(world);
-    drawParticles(world.particles);
+    drawParticles(world.particles, rotation);
     ctx.restore();
+
+    // labels are drawn in screen space so they stay upright in both camera modes
+    const rot = rotation;
+    const cosR = Math.cos(rot), sinR = Math.sin(rot);
+    for (const car of sorted) {
+      if (car.wrecked) continue;
+      const wx = car.x, wy = car.y - car.spec.length * 0.72 - 8;
+      const dx = (wx - renderCamX) * z;
+      const dy = (wy - renderCamY) * z;
+      const sx = anchorX + dx * cosR - dy * sinR;
+      const sy = anchorY + dx * sinR + dy * cosR;
+      if (sx < -90 || sx > view.w + 90 || sy < -50 || sy > view.h + 50) continue;
+      drawCarLabels(ctx, car, sx, sy);
+    }
 
     drawSpeedFx(world);
     drawWeather(world, time);
@@ -8658,6 +9512,7 @@ kbd {
       color: custom?.color || base.color,
       color2: custom?.color2 || base.color2,
       trim: custom?.trim || base.trim,
+      pattern: custom?.pattern || '', patternColor: custom?.patternColor || '',
       isPlayer: false, isBoss: false, braking: false,
       shield: 0, hitShield: 0, nitro: 0, wrecked: false, vf: 0, transcend: 0, beyond: false
     };
@@ -8791,6 +9646,7 @@ kbd {
     const txt = Number(save.credits || 0).toLocaleString('zh-CN');
     setText($('credits'), txt);
     setText($('levelCredits'), txt);
+    setText($('gachaCredits'), txt);
   }
 
   function toast(message) {
@@ -8805,10 +9661,11 @@ kbd {
     const wrap = $('carCompare');
     if (!wrap) return;
     const rows = [['speed', '极速'], ['accel', '加速'], ['grip', '抓地'], ['durability', '耐久']];
+    const stock = Object.fromEntries(COMPARE_ORDER.map(k => [k, stockRatings(k)]));
     wrap.innerHTML = `
       <div class="compare-row compare-head"><span>基础</span>${COMPARE_ORDER.map(k => `<b data-compare-car="${k}">${CARS[k].shortName || CARS[k].name}</b>`).join('')}</div>
       ${rows.map(([key, label]) => `
-        <div class="compare-row"><span>${label}</span>${COMPARE_ORDER.map(k => `<b data-compare-car="${k}">${CARS[k].stat[key]}</b>`).join('')}</div>
+        <div class="compare-row"><span>${label}</span>${COMPARE_ORDER.map(k => `<b data-compare-car="${k}">${stock[k][key]}</b>`).join('')}</div>
       `).join('')}`;
   }
 
@@ -8897,11 +9754,12 @@ kbd {
     if (!wrap) return;
     const base = CARS[key];
     wrap.innerHTML = Object.values(PAINTS).map(p => {
-      const unlocked = !p.badge || !!save.badges[p.badge];
+      const unlocked = isPaintUnlocked(p);
       const selected = save.paints[key] === p.id;
       const a = p.id === 'stock' ? base.color : p.color;
       const b = p.id === 'stock' ? base.color2 : p.color2;
-      return `<button class="paint-swatch${selected ? ' selected' : ''}${unlocked ? '' : ' locked'}" data-paint="${p.id}" title="${unlocked ? p.name : '徽章解锁：' + (BADGES[p.badge]?.name || '')}">
+      const lockText = p.badge ? '徽章解锁：' + (BADGES[p.badge]?.name || '') : '星愿工坊解锁';
+      return `<button class="paint-swatch${selected ? ' selected' : ''}${unlocked ? '' : ' locked'}" data-paint="${p.id}" title="${unlocked ? p.name : lockText}">
         <i style="--paint-a:${a};--paint-b:${b}"></i>
         <span class="paint-name">${unlocked ? p.name : '未解锁'}</span>
       </button>`;
@@ -8911,8 +9769,8 @@ kbd {
   function selectPaint(id) {
     const paint = PAINTS[id];
     if (!paint) return;
-    if (paint.badge && !save.badges[paint.badge]) {
-      toast(`击败对应 BOSS 后可解锁「${paint.name}」`);
+    if (!isPaintUnlocked(paint)) {
+      toast(paint.badge ? `击败对应 BOSS 后可解锁「${paint.name}」` : `「${paint.name}」可在星愿工坊抽取`);
       return;
     }
     save.paints[save.car] = id;
@@ -8962,7 +9820,9 @@ kbd {
     for (const k of CAR_ORDER) {
       const u = upgradesOf(k);
       const total = u.tires + u.engine + u.body;
-      setText($('carLvl-' + k), isCarOwned(k) ? `调校 ${total} / 15` : isBossCar(k) ? 'BOSS 模式解锁' : `◆ ${EV_UNLOCK_PRICE} · 图鉴解锁`);
+      const perfPct = Math.round(bossUpgradeEfficiency(k) * 100);
+      const lvlText = isBossCar(k) ? `调校 ${total} / 15 · 效能 ${perfPct}%` : `调校 ${total} / 15`;
+      setText($('carLvl-' + k), isCarOwned(k) ? lvlText : isBossCar(k) ? 'BOSS 模式解锁' : `◆ ${EV_UNLOCK_PRICE} · 图鉴解锁`);
       drawCarPreview($('thumb-' + k), k, 108, 82, isBossCar(k) ? 1.48 : 1.6, -0.24);
     }
     setText($('carCount'), `${CAR_ORDER.filter(k => isCarOwned(k)).length} / 0${CAR_ORDER.length}`);
@@ -8973,24 +9833,35 @@ kbd {
     setText($('levelCarName'), base.name);
     $('carPassive').querySelector('p').textContent = base.passive;
 
-    const display = key === 'ev'
-      ? {
-        speed: clamp(1 + up.engine * 1.8, 1, 10),
-        accel: clamp(1 + up.engine * 1.8, 1, 10),
-        grip: clamp(1 + up.tires * 1.8, 1, 10),
-        durability: 1
+    const tuneEff = bossUpgradeEfficiency(key);
+    const tuneTier = bossBadgeTier(key);
+    const tuneBadgeId = BOSS_CAR_BADGE[key];
+    const tuneBadge = tuneBadgeId ? BADGES[tuneBadgeId] : null;
+    const tuneOwned = !!(tuneBadgeId && save.badges?.[tuneBadgeId]);
+    const tuneEl = $('bossCarPerf');
+    if (tuneEl) {
+      tuneEl.classList.toggle('hidden', !isBossCar(key));
+      tuneEl.classList.toggle('tier-3', isBossCar(key) && tuneTier === 3);
+      if (isBossCar(key)) {
+        const label = tuneOwned ? `${tuneBadge?.name || 'BOSS 徽章'} D${tuneTier}` : `${tuneBadge?.name || 'BOSS 徽章'} 未获得`;
+        tuneEl.innerHTML = `<b>${label}</b> · 改装 / 被动效能 <b>${Math.round(tuneEff * 100)}%</b>`
+          + (tuneTier < 3 ? `<br>击败 D2 / D3 进化形态可提升至 75% / 100%` : '<br>完全体：已释放 100% 数值');
       }
-      : {
-        speed: clamp(base.stat.speed + up.engine * 0.42, 1, 10),
-        accel: clamp(base.stat.accel + up.engine * 0.5, 1, 10),
-        grip: clamp(base.stat.grip + up.tires * 0.66, 1, 10),
-        durability: clamp(base.stat.durability + up.body * 0.55, 1, 10)
-      };
+    }
+    const display = ratingsForSpec(buildSpec(key, { player: true }));
     for (const stat of Object.keys(display)) {
       const bar = document.querySelector(`[data-stat="${stat}"]`);
       const val = document.querySelector(`[data-statval="${stat}"]`);
       if (bar) bar.style.width = `${display[stat] * 10}%`;
       if (val) val.textContent = display[stat].toFixed(1).replace('.0', '');
+    }
+
+    const specialNote = $('carSpecialNote');
+    if (specialNote) {
+      specialNote.classList.toggle('hidden', key !== 'ev');
+      if (key === 'ev') {
+        specialNote.innerHTML = '<b>抓地评分随速度 10 → 1</b> · 低速 10、极速 1，比疾风的 2.1 还低；踩下油门就即时变化。比赛中不显示读条，只能靠手感。';
+      }
     }
 
     drawCarPreview($('garagePreview'), key, 320, 150, isBossCar(key) ? 2.5 : 2.8, -0.2);
@@ -9278,6 +10149,7 @@ kbd {
 
   function openHome() {
     mode = 'menu';
+    Music.setTheme('menu');
     setAttractTrack(attractLevelFor(activeChapter));
     showScreen('home');
     updateCredits();
@@ -9285,8 +10157,10 @@ kbd {
 
   function openGarage() {
     mode = 'menu';
+    Music.setTheme('menu');
     setAttractTrack(attractLevelFor(activeChapter));
     refreshGarage();
+    renderDriverChip();
     showScreen('garage');
     updateCredits();
   }
@@ -9294,6 +10168,7 @@ kbd {
   function openLevels(chapter = activeChapter) {
     mode = 'menu';
     activeChapter = chapter;
+    Music.setTheme('chapter' + chapter);
     setAttractTrack(attractLevelFor(activeChapter));
     refreshLevelCards();
     showScreen('levels');
@@ -9314,6 +10189,7 @@ kbd {
 
   function openCodex(category = null) {
     mode = 'menu';
+    Music.setTheme('menu');
     if (category) codexCategory = category;
     codexReturn = ['levels', 'garage'].includes(screenName) ? screenName : 'home';
     setAttractTrack(attractLevelFor(activeChapter));
@@ -9394,7 +10270,8 @@ kbd {
       const car = CARS[key];
       const owned = isCarOwned(key);
       const bossCar = isBossCar(key);
-      const stats = [['极速', car.stat.speed], ['加速', car.stat.accel], ['抓地', car.stat.grip], ['耐久', car.stat.durability]];
+      const r = stockRatings(key);
+      const stats = [['极速', r.speed], ['加速', r.accel], ['抓地', r.grip], ['耐久', r.durability]];
       const statRows = stats.map(([label, value]) => `
         <div class="codex-stat"><span>${label}</span><i><em style="width:${value * 10}%"></em></i><b>${value}</b></div>`).join('');
       return `<article class="codex-card codex-car-card${owned ? '' : ' locked'}">
@@ -9568,6 +10445,7 @@ kbd {
 
   function openBadges() {
     mode = 'menu';
+    Music.setTheme('menu');
     badgesReturn = ['garage', 'levels'].includes(screenName) ? screenName : 'home';
     if (!BADGES[selectedBadge] || (!save.badges[selectedBadge] && BADGE_KEYS.some(id => save.badges[id]))) {
       selectedBadge = BADGE_KEYS.find(id => save.badges[id]) || BADGE_KEYS[0];
@@ -9670,6 +10548,198 @@ kbd {
     toast(`已应用「${PAINTS[badge.paint]?.name}」车漆`);
   }
 
+  let gachaPool = 'paint';
+  let gachaLast = [];
+
+  function driverById(id) {
+    return DRIVERS[id] || DRIVERS.rookie;
+  }
+
+  function driverEffectText(driver) {
+    const labels = { speed: '极速', accel: '加速', grip: '抓地', turn: '转向', hp: '耐久' };
+    return Object.entries(driver.mods || {}).map(([key, value]) => {
+      const pct = Math.round(value * 1000) / 10;
+      return `${labels[key] || key} ${pct > 0 ? '+' : ''}${pct}%`;
+    }).join(' · ');
+  }
+
+  function renderDriverChip() {
+    const driver = driverById(save.driver);
+    setText($('driverChipIcon'), driver.icon);
+    setText($('driverChipName'), driver.name);
+    const chip = $('driverChip');
+    if (chip) chip.style.setProperty('--driver-color', driver.color);
+    const icon = $('driverChipIcon');
+    if (icon) icon.style.background = rgba(driver.color, 0.16);
+    if (icon) icon.style.color = driver.color;
+  }
+
+  function renderDrivers() {
+    const wrap = $('driverList');
+    if (!wrap) return;
+    wrap.innerHTML = DRIVER_KEYS.map(id => {
+      const d = DRIVERS[id];
+      const owned = !!save.driverOwned[id];
+      const active = save.driver === id;
+      const r = GACHA_RARITY[d.rarity] || GACHA_RARITY.common;
+      return `<button class="driver-card${active ? ' active' : ''}${owned ? '' : ' locked'}" data-driver-id="${id}">
+        <span class="driver-avatar" style="background:${d.color}">${d.icon}</span>
+        <span class="driver-card-copy">
+          <small>${r.name} · ${d.en}</small>
+          <b>${d.name}</b>
+          <p>${d.desc}</p>
+          <span class="driver-card-mods">${driverEffectText(d)}</span>
+        </span>
+        <span class="driver-equipped">${active ? '出战中' : owned ? '选择' : '未解锁'}</span>
+      </button>`;
+    }).join('');
+    wrap.querySelectorAll('[data-driver-id]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.driverId;
+        if (!save.driverOwned[id]) {
+          closeDrivers();
+          openGacha('driver');
+          return;
+        }
+        save.driver = id;
+        persist();
+        AudioFX.click();
+        renderDriverChip();
+        refreshGarage();
+        renderDrivers();
+        toast(`车手已切换为「${DRIVERS[id].name}」`);
+      });
+    });
+  }
+
+  function openDrivers() {
+    renderDrivers();
+    $('driverOverlay').classList.remove('hidden');
+    AudioFX.resume(); AudioFX.click();
+  }
+
+  function closeDrivers() {
+    $('driverOverlay').classList.add('hidden');
+    AudioFX.click();
+  }
+
+  function gachaRarityRoll(pool) {
+    const state = save.gacha[pool];
+    let rarity;
+    if (state.legendPity >= 119) rarity = 'legendary';
+    else if (state.epicPity >= 59) rarity = 'epic';
+    else {
+      const roll = Math.random() * 100;
+      rarity = roll < 1.5 ? 'legendary' : roll < 10 ? 'epic' : roll < 40 ? 'rare' : 'common';
+    }
+    state.pulls++;
+    if (rarity === 'legendary') {
+      state.legendPity = 0;
+      state.epicPity = 0;
+    } else if (rarity === 'epic') {
+      state.epicPity = 0;
+      state.legendPity = Math.min(120, state.legendPity + 1);
+    } else {
+      state.epicPity = Math.min(60, state.epicPity + 1);
+      state.legendPity = Math.min(120, state.legendPity + 1);
+    }
+    return rarity;
+  }
+
+  function gachaItemFor(pool, rarity) {
+    const items = GACHA_POOLS[pool].items.filter(i => i.rarity === rarity);
+    const fallback = GACHA_POOLS[pool].items;
+    const list = items.length ? items : fallback;
+    return list[Math.floor(Math.random() * list.length)];
+  }
+
+  function gachaAward(item) {
+    if (item.kind === 'paint') {
+      const paint = PAINTS[item.id];
+      const isNew = !save.paintUnlocks[item.id];
+      if (isNew) save.paintUnlocks[item.id] = true;
+      const refund = isNew ? 0 : GACHA_RARITY[item.rarity].refund;
+      if (refund) save.credits += refund;
+      return {
+        kind: 'paint', id: item.id, rarity: item.rarity, name: paint.name,
+        icon: '✦', isNew, refund, desc: '通用涂装'
+      };
+    }
+    const driver = DRIVERS[item.id];
+    const isNew = !save.driverOwned[item.id];
+    if (isNew) save.driverOwned[item.id] = true;
+    const refund = isNew ? 0 : GACHA_RARITY[item.rarity].refund;
+    if (refund) save.credits += refund;
+    return {
+      kind: 'driver', id: item.id, rarity: item.rarity, name: driver.name,
+      icon: driver.icon, isNew, refund, desc: driverEffectText(driver)
+    };
+  }
+
+  function gachaDrawOne(pool) {
+    const rarity = gachaRarityRoll(pool);
+    return gachaAward(gachaItemFor(pool, rarity));
+  }
+
+  function gachaResultCard(result) {
+    return `<div class="gacha-item ${result.rarity}">
+      <span class="gacha-icon">${result.icon}</span>
+      <b>${result.name}</b>
+      <small>${(GACHA_RARITY[result.rarity]?.name || '普通')} · ${result.isNew ? 'NEW' : `重复 +${result.refund}◆`}</small>
+    </div>`;
+  }
+
+  function renderGacha() {
+    const pool = GACHA_POOLS[gachaPool];
+    if (!pool) return;
+    const state = save.gacha[gachaPool];
+    setText($('gachaCredits'), Number(save.credits || 0).toLocaleString('zh-CN'));
+    for (const tab of $$('[data-gacha-pool]')) tab.classList.toggle('active', tab.dataset.gachaPool === gachaPool);
+    setText($('gachaBannerTitle'), pool.title);
+    setText($('gachaBannerDesc'), pool.desc);
+    $('gachaRates').innerHTML = '概率<br><b>普通 60% · 稀有 30%</b><br><b>史诗 8.5% · 传说 1.5%</b>';
+    $('gachaPity').innerHTML = `累计 <b>${state.pulls}</b> 抽 · 史诗保底 <b>${Math.max(0, 60 - state.epicPity)}</b> 抽 · 传说保底 <b>${Math.max(0, 120 - state.legendPity)}</b> 抽`;
+    $('gachaResults').innerHTML = gachaLast.length
+      ? gachaLast.map(gachaResultCard).join('')
+      : '<div class="gacha-empty">抽到的涂装 / 车手会显示在这里</div>';
+    $('gachaPull1').disabled = save.credits < 100;
+    $('gachaPull10').disabled = save.credits < 1000;
+  }
+
+  function openGacha(pool = 'paint') {
+    gachaPool = GACHA_POOLS[pool] ? pool : 'paint';
+    gachaLast = [];
+    renderGacha();
+    $('gachaOverlay').classList.remove('hidden');
+    updateCredits();
+    AudioFX.resume(); AudioFX.click();
+  }
+
+  function closeGacha() {
+    $('gachaOverlay').classList.add('hidden');
+    AudioFX.click();
+  }
+
+  function gachaPull(count) {
+    const cost = count === 10 ? 1000 : 100;
+    if (save.credits < cost) {
+      toast(`代币不足，需要 ◆ ${cost}`);
+      return;
+    }
+    save.credits -= cost;
+    const results = [];
+    for (let i = 0; i < count; i++) results.push(gachaDrawOne(gachaPool));
+    if (count === 10 && !results.some(r => GACHA_RARITY[r.rarity].rank >= 2)) {
+      results[results.length - 1] = gachaAward(gachaItemFor(gachaPool, 'rare'));
+    }
+    gachaLast = results;
+    persist();
+    updateCredits();
+    renderGacha();
+    AudioFX.resume(); AudioFX.coin ? AudioFX.coin() : AudioFX.win();
+    toast(`星愿工坊 · ${count === 10 ? '十连' : '单抽'}完成`);
+  }
+
   function openHelp() {
     AudioFX.resume(); AudioFX.click();
     $('helpModal').classList.remove('hidden');
@@ -9684,6 +10754,49 @@ kbd {
     btn.textContent = save.sound ? '♪' : '×';
   }
 
+  let settingsFromPause = false;
+  function renderSettings() {
+    for (const btn of $$('[data-camera-mode]')) {
+      const active = btn.dataset.cameraMode === save.cameraMode;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+    const musicToggle = $('musicToggle');
+    if (musicToggle) musicToggle.checked = !!save.music;
+    const musicVolume = $('musicVolume');
+    if (musicVolume) musicVolume.value = String(Math.round((save.musicVolume ?? 0.35) * 100));
+    const musicVolumeVal = $('musicVolumeVal');
+    if (musicVolumeVal) musicVolumeVal.textContent = Math.round((save.musicVolume ?? 0.35) * 100) + '%';
+    const sfxVolume = $('sfxVolume');
+    if (sfxVolume) sfxVolume.value = String(Math.round((save.sfxVolume ?? 0.8) * 100));
+    const sfxVolumeVal = $('sfxVolumeVal');
+    if (sfxVolumeVal) sfxVolumeVal.textContent = Math.round((save.sfxVolume ?? 0.8) * 100) + '%';
+  }
+
+  function openSettings(fromPause = false) {
+    settingsFromPause = fromPause;
+    renderSettings();
+    $('settingsOverlay').classList.remove('hidden');
+    AudioFX.resume();
+    AudioFX.click();
+  }
+
+  function closeSettings() {
+    $('settingsOverlay').classList.add('hidden');
+    if (settingsFromPause && mode === 'paused') $('pauseOverlay').classList.remove('hidden');
+    settingsFromPause = false;
+    AudioFX.click();
+  }
+
+  function setCameraMode(mode) {
+    if (mode !== 'world' && mode !== 'heading') return;
+    if (save.cameraMode === mode) return;
+    save.cameraMode = mode;
+    persist();
+    renderSettings();
+    AudioFX.click();
+  }
+
   function bindUI() {
     $('btnStart').addEventListener('click', () => { AudioFX.resume(); AudioFX.click(); openLevels(); });
     $('btnBossMode').addEventListener('click', () => { AudioFX.resume(); AudioFX.click(); openBossMode(); });
@@ -9692,6 +10805,23 @@ kbd {
     $('bossModeToLevels').addEventListener('click', () => { AudioFX.click(); openLevels(); });
     $('btnGarage').addEventListener('click', () => { AudioFX.resume(); AudioFX.click(); openGarage(); });
     $('btnCodex').addEventListener('click', () => { AudioFX.resume(); AudioFX.click(); openCodex(); });
+    $('btnGacha').addEventListener('click', () => { AudioFX.resume(); AudioFX.click(); openGacha('paint'); });
+    $('driverChip').addEventListener('click', () => openDrivers());
+    $('driverClose').addEventListener('click', closeDrivers);
+    $('driverDone').addEventListener('click', closeDrivers);
+    $('driverToGacha').addEventListener('click', () => { closeDrivers(); openGacha('driver'); });
+    $('driverOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeDrivers(); });
+    $('gachaClose').addEventListener('click', closeGacha);
+    $('gachaOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeGacha(); });
+    $('gachaPull1').addEventListener('click', () => gachaPull(1));
+    $('gachaPull10').addEventListener('click', () => gachaPull(10));
+    for (const tab of $$('[data-gacha-pool]')) {
+      tab.addEventListener('click', () => {
+        gachaPool = tab.dataset.gachaPool;
+        gachaLast = [];
+        renderGacha();
+      });
+    }
     $('levelsToCodex').addEventListener('click', () => { AudioFX.click(); openCodex(); });
     $('codexBack').addEventListener('click', () => { AudioFX.click(); closeCodex(); });
     $('codexToLevels').addEventListener('click', () => { AudioFX.click(); openLevels(); });
@@ -9732,6 +10862,38 @@ kbd {
       if (save.sound) AudioFX.click();
     });
 
+    $('settingsBtn').addEventListener('click', () => openSettings(false));
+    $('settingsClose').addEventListener('click', closeSettings);
+    $('settingsDone').addEventListener('click', closeSettings);
+    $('pauseSettings').addEventListener('click', () => openSettings(true));
+    $('settingsOverlay').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeSettings();
+    });
+    for (const btn of $$('[data-camera-mode]')) {
+      btn.addEventListener('click', () => setCameraMode(btn.dataset.cameraMode));
+    }
+    $('musicToggle').addEventListener('change', e => {
+      save.music = e.target.checked;
+      persist();
+      AudioFX.resume();
+      Music.setEnabled(save.music);
+      renderSettings();
+    });
+    $('musicVolume').addEventListener('input', e => {
+      save.musicVolume = clamp(Number(e.target.value) / 100, 0, 1);
+      persist();
+      AudioFX.resume();
+      Music.setVolume(save.musicVolume);
+      $('musicVolumeVal').textContent = Math.round(save.musicVolume * 100) + '%';
+    });
+    $('sfxVolume').addEventListener('input', e => {
+      save.sfxVolume = clamp(Number(e.target.value) / 100, 0, 1);
+      persist();
+      AudioFX.resume();
+      AudioFX.setSfxVolume(save.sfxVolume);
+      $('sfxVolumeVal').textContent = Math.round(save.sfxVolume * 100) + '%';
+    });
+
     $('hudPause').addEventListener('click', () => { if (mode === 'race') togglePause(); });
     $('pauseResume').addEventListener('click', togglePause);
     $('pauseRestart').addEventListener('click', restartRace);
@@ -9768,6 +10930,7 @@ kbd {
       ctx.fillStyle = '#070910';
       ctx.fillRect(0, 0, view.w, view.h);
     }
+    Music.update();
     requestAnimationFrame(frame);
   }
 
@@ -9777,6 +10940,8 @@ kbd {
     get race() { return race; },
     get attract() { return attract; },
     get save() { return save; },
+    get music() { return Music; },
+    get audio() { return AudioFX; },
     get autopilot() { return !!(race && race.autopilot); },
     set autopilot(v) { if (race) race.autopilot = !!v; },
     startRace, startBossMode, openHome, openGarage, openLevels, openBossMode, openBadges, togglePause,
@@ -9795,7 +10960,11 @@ kbd {
   function init() {
     loadSave();
     save.sound = save.sound !== false;
+    save.music = save.music !== false;
     AudioFX.enabled = save.sound;
+    AudioFX.setSfxVolume(save.sfxVolume);
+    Music.setEnabled(save.music);
+    Music.setVolume(save.musicVolume);
     resizeCanvas();
     for (const cfg of TRACKS) trackCache[cfg.id] = buildTrack(cfg);
     for (const stage of BOSS_STAGES) trackCache[stage.id] = buildTrack(stage);
@@ -9814,6 +10983,14 @@ kbd {
   init();
 
 })();
+
+
+
+
+
+
+
+
 
 
 
